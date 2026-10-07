@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Connecting Dots — Less motivation. More practical skills.</title>
+<meta name="description" content="Connecting Dots is Pakistan's youth digital skills movement for ages 16–35. Connect, Learn, Adapt, Build, Grow.">
+<meta name="theme-color" content="#0E1F4A">
+<meta property="og:title" content="Connecting Dots — Youth Digital Skills Movement">
+<meta property="og:description" content="Less motivation. More practical skills.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   CONNECTING DOTS — BRAND SYSTEM
+   Navy #0E1F4A · Blue #004AAD · Grey #8C8C8C · Mist #EEF1F6
+   Headings: Georgia/Cambria  ·  Body: Inter/Calibri
+   ============================================================ */
+:root{
+  --navy:#0E1F4A; --blue:#004AAD; --grey:#8C8C8C;
+  --mist:#EEF1F6; --white:#FFFFFF;
+  --wa:#25D366; --wa-dark:#1EBE5D;
+  --ink:#0E1F4A; --muted:#5B6472;
+  --line:#DFE4ED; --line-strong:#C9D1DF;
+  --surface:#F7F9FC; --blue-soft:#E3ECFA;
+  --ok:#1E7A45; --err:#B3261E;
+  --font-serif:Georgia,Cambria,"Times New Roman",serif;
+  --font-sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,Calibri,sans-serif;
+  --max-w:1200px; --header-h:72px;
+  --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px; --r-pill:999px;
+  --sh-xs:0 1px 2px rgba(14,31,74,.06);
+  --sh-sm:0 2px 8px rgba(14,31,74,.06);
+  --sh-md:0 8px 24px rgba(14,31,74,.08);
+  --sh-lg:0 20px 48px rgba(14,31,74,.12);
+  --dur-fast:.18s; --dur:.28s; --dur-slow:.5s;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --ease-out:cubic-bezier(.2,.7,.2,1);
+}
+[data-theme="dark"]{
+  --white:#0A1430; --mist:#0F1B3D; --surface:#0E1836;
+  --ink:#EAF0FF; --muted:#A9B5CE; --line:#233258; --line-strong:#33436D;
+  --blue-soft:#13234C;
+  --sh-md:0 8px 24px rgba(0,0,0,.4); --sh-lg:0 20px 48px rgba(0,0,0,.55);
+}
+[data-theme="dark"] .hero,
+[data-theme="dark"] .page-hero,
+[data-theme="dark"] .section--navy,
+[data-theme="dark"] .site-footer,
+[data-theme="dark"] .cta-band{background:#050B20}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--font-sans);font-size:16px;line-height:1.6;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+img,svg,video{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
+ul,ol{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4,h5,h6{margin:0;font-family:var(--font-serif);font-weight:700;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+p{margin:0 0 1em}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+::selection{background:var(--blue);color:#fff}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* LAYOUT */
+.container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 24px}
+.section{padding:clamp(64px,9vw,96px) 0}
+.section--sm{padding:clamp(48px,6vw,64px) 0}
+.section--mist{background:var(--mist)}
+.section--navy{background:var(--navy);color:#fff}
+.section--navy h1,.section--navy h2,.section--navy h3,.section--navy h4{color:#fff}
+.section--navy p{color:#C6D2E8}
+.section__head{max-width:760px;margin-bottom:52px}
+.section__head--center{margin-left:auto;margin-right:auto;text-align:center}
+.section__head p{color:var(--muted);font-size:1.05rem;margin-top:16px;max-width:62ch}
+.section--navy .section__head p{color:#C6D2E8}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--blue);border-radius:2px}
+.section--navy .eyebrow{color:#8FB0E6}
+.section--navy .eyebrow::before{background:#8FB0E6}
+.lead{font-size:1.08rem;color:var(--muted);max-width:62ch}
+.grid{display:grid;gap:24px}
+.grid--2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.grid--3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.grid--4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+@media(max-width:880px){.two-col{grid-template-columns:1fr;gap:32px}}
+
+/* HEADER */
+.site-header{position:sticky;top:0;z-index:90;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent;transition:border-color var(--dur),box-shadow var(--dur)}
+[data-theme="dark"] .site-header{background:rgba(10,20,48,.92)}
+.site-header.is-scrolled{border-bottom-color:var(--line);box-shadow:var(--sh-xs)}
+.header-inner{display:flex;align-items:center;gap:16px;height:var(--header-h)}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--font-serif);font-weight:700;font-size:1.22rem;color:var(--ink);letter-spacing:-.01em}
+.brand span{color:var(--blue)}
+.primary-nav{display:flex;align-items:center;gap:2px;margin-left:auto}
+.primary-nav a{padding:9px 13px;border-radius:var(--r-pill);font-size:.9rem;font-weight:600;color:var(--muted);transition:color var(--dur-fast),background var(--dur-fast);white-space:nowrap}
+.primary-nav a:hover{color:var(--ink);background:var(--mist)}
+.primary-nav a.is-active{color:var(--blue);background:var(--blue-soft)}
+.nav-cta{margin-left:8px;padding:11px 22px!important;border-radius:var(--r-pill);background:var(--blue);color:#fff!important;font-weight:700;box-shadow:0 6px 16px rgba(0,74,173,.25);transition:background var(--dur-fast),transform var(--dur-fast),box-shadow var(--dur-fast)}
+.nav-cta:hover{background:var(--navy);transform:translateY(-1px);box-shadow:0 10px 22px rgba(14,31,74,.28)}
+.nav-actions{display:flex;align-items:center;gap:6px;margin-left:8px}
+.icon-btn{width:40px;height:40px;border-radius:var(--r-md);display:grid;place-items:center;color:var(--ink);transition:background var(--dur-fast),color var(--dur-fast)}
+.icon-btn:hover{background:var(--mist);color:var(--blue)}
+.wa-header{width:40px;height:40px;border-radius:var(--r-md);display:grid;place-items:center;color:var(--wa);background:rgba(37,211,102,.12);transition:background var(--dur-fast),transform var(--dur-fast),color var(--dur-fast)}
+.wa-header:hover{background:var(--wa);color:#fff;transform:translateY(-1px)}
+.wa-header svg{width:20px;height:20px}
+.nav-toggle{display:none;width:42px;height:42px;border-radius:var(--r-md);position:relative;margin-left:auto}
+.nav-toggle span{position:absolute;left:11px;right:11px;height:2px;background:var(--ink);border-radius:2px;transition:transform var(--dur),opacity var(--dur)}
+.nav-toggle span:nth-child(1){top:14px}
+.nav-toggle span:nth-child(2){top:20px}
+.nav-toggle span:nth-child(3){top:26px}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:1040px){.primary-nav,.nav-cta{display:none}.nav-toggle{display:grid}}
+
+/* MOBILE NAV */
+.mobile-nav{position:fixed;inset:0;z-index:200;pointer-events:none}
+.mobile-nav__scrim{position:absolute;inset:0;background:rgba(14,31,74,.55);opacity:0;transition:opacity var(--dur)}
+.mobile-nav__panel{position:absolute;top:0;right:0;height:100%;width:min(360px,88vw);background:var(--white);border-left:1px solid var(--line);transform:translateX(100%);transition:transform var(--dur-slow) var(--ease);display:flex;flex-direction:column;padding:20px;overflow-y:auto}
+.mobile-nav.is-open{pointer-events:auto}
+.mobile-nav.is-open .mobile-nav__scrim{opacity:1}
+.mobile-nav.is-open .mobile-nav__panel{transform:none}
+.mobile-nav__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.mobile-nav nav{display:grid;gap:2px}
+.mobile-nav nav a{padding:13px 12px;border-radius:var(--r-md);font-weight:600;color:var(--ink);transition:background var(--dur-fast),color var(--dur-fast)}
+.mobile-nav nav a:hover,.mobile-nav nav a.is-active{background:var(--mist);color:var(--blue)}
+.mobile-nav nav a.sub{font-size:.9rem;color:var(--muted);font-weight:500}
+.mobile-nav nav .divider{height:1px;background:var(--line);margin:12px 0}
+.mobile-nav nav .nav-cta{margin-top:12px;text-align:center;display:block;padding:14px!important}
+.wa-drawer{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:12px;padding:14px;border-radius:var(--r-pill);background:var(--wa);color:#fff!important;font-weight:700;transition:background var(--dur-fast)}
+.wa-drawer:hover{background:var(--wa-dark)}
+.wa-drawer svg{width:18px;height:18px}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 26px;border-radius:var(--r-pill);font-family:var(--font-sans);font-weight:700;font-size:.95rem;border:1.5px solid transparent;transition:all var(--dur-fast);white-space:nowrap;cursor:pointer}
+.btn svg{width:16px;height:16px;flex-shrink:0}
+.btn--primary{background:var(--blue);color:#fff;box-shadow:0 6px 16px rgba(0,74,173,.22)}
+.btn--primary:hover{background:var(--navy);transform:translateY(-1px);box-shadow:0 10px 22px rgba(14,31,74,.28)}
+.btn--secondary{background:var(--white);color:var(--navy);border-color:var(--line-strong)}
+.btn--secondary:hover{border-color:var(--blue);color:var(--blue)}
+.btn--ghost{background:transparent;color:var(--blue);padding-left:6px;padding-right:6px}
+.btn--ghost:hover{color:var(--navy)}
+.btn--on-navy{background:#fff;color:var(--navy)}
+.btn--on-navy:hover{transform:translateY(-1px);box-shadow:0 12px 26px rgba(0,0,0,.25)}
+.btn--outline-navy{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+.btn--outline-navy:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.btn--wa{background:var(--wa);color:#fff;box-shadow:0 6px 16px rgba(37,211,102,.3)}
+.btn--wa:hover{background:var(--wa-dark);transform:translateY(-1px);box-shadow:0 10px 22px rgba(37,211,102,.4)}
+.btn--sm{padding:9px 18px;font-size:.86rem}
+.btn--lg{padding:15px 30px;font-size:1rem}
+.btn--block{width:100%}
+.btn[disabled]{opacity:.6;cursor:not-allowed;transform:none!important}
+
+/* HERO */
+.hero{position:relative;background:var(--navy);color:#fff;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.09) 1.4px,transparent 1.5px);background-size:32px 32px;-webkit-mask-image:radial-gradient(ellipse 60% 70% at 20% 30%,#000,transparent 70%);mask-image:radial-gradient(ellipse 60% 70% at 20% 30%,#000,transparent 70%);pointer-events:none}
+.hero__inner{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:clamp(64px,9vw,120px) 0}
+@media(max-width:920px){.hero__inner{grid-template-columns:1fr;gap:40px;padding:64px 0}}
+.hero h1{color:#fff;font-size:clamp(2.2rem,5.5vw,4rem);max-width:15ch}
+.hero h1 em{font-style:normal;color:#8FB0E6}
+.hero__sub{color:#C6D2E8;font-size:clamp(1.02rem,1.3vw,1.18rem);max-width:46ch;margin:22px 0 32px}
+.hero__cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero__journey{display:flex;flex-wrap:wrap;gap:8px;margin-top:36px}
+.hero__journey span{display:inline-flex;align-items:center;gap:8px;padding:8px 15px;border-radius:var(--r-pill);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);font-size:.83rem;font-weight:600;color:#E4ECFA}
+.hero__journey span i{width:5px;height:5px;border-radius:50%;background:#8FB0E6;display:block}
+.hero__visual{position:relative;aspect-ratio:1/1;border-radius:var(--r-xl);overflow:hidden;background:linear-gradient(140deg,#16265A,#0A1530);border:1px solid rgba(255,255,255,.08);box-shadow:0 30px 80px rgba(0,0,0,.4)}
+.hero__visual canvas{width:100%;height:100%;display:block}
+@media(max-width:920px){.hero__visual{aspect-ratio:4/3;max-width:520px;margin:0 auto}}
+
+/* PAGE HERO */
+.page-hero{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.page-hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1.4px,transparent 1.5px);background-size:30px 30px;-webkit-mask-image:radial-gradient(ellipse 70% 80% at 80% 20%,#000,transparent 70%);mask-image:radial-gradient(ellipse 70% 80% at 80% 20%,#000,transparent 70%);pointer-events:none}
+.page-hero .container{position:relative;padding:clamp(56px,7vw,96px) 24px}
+.page-hero h1{color:#fff;max-width:18ch}
+.page-hero p{color:#C6D2E8;max-width:58ch;margin-top:16px;font-size:1.05rem}
+.crumb{display:flex;gap:8px;align-items:center;color:#8FA0C0;font-size:.84rem;margin-bottom:16px}
+.crumb a:hover{color:#fff}
+.crumb .sep{color:rgba(255,255,255,.2)}
+
+/* CARDS */
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;transition:transform var(--dur),box-shadow var(--dur),border-color var(--dur)}
+.card:hover{transform:translateY(-4px);box-shadow:var(--sh-md);border-color:var(--line-strong)}
+.section--mist .card{background:var(--white)}
+.card__ico{width:46px;height:46px;border-radius:var(--r-md);display:grid;place-items:center;background:var(--blue-soft);color:var(--blue);margin-bottom:18px}
+.card__ico svg{width:22px;height:22px}
+.card h3{font-size:1.18rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.95rem;margin:0}
+.card--feature{background:var(--navy);color:#fff;border-color:transparent}
+.card--feature h3,.card--feature h4{color:#fff}
+.card--feature p{color:#C6D2E8}
+.card--feature .card__ico{background:rgba(255,255,255,.12);color:#fff}
+
+/* JOURNEY STEP */
+.step-card .num{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:var(--r-sm);background:var(--blue);color:#fff;font-family:var(--font-serif);font-weight:700;font-size:1rem;margin-bottom:16px}
+
+/* EVENT */
+.event{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;transition:transform var(--dur),box-shadow var(--dur),border-color var(--dur)}
+.event:hover{transform:translateY(-3px);box-shadow:var(--sh-md);border-color:var(--line-strong)}
+.event__date{width:72px;height:72px;border-radius:var(--r-md);background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;text-align:center;line-height:1;padding:8px;flex-shrink:0}
+.event__date b{font-family:var(--font-serif);font-size:1.6rem;font-weight:700;display:block}
+.event__date span{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+.event h3{font-size:1.08rem;margin-bottom:8px}
+.event__meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;color:var(--muted);font-size:.86rem;margin-bottom:14px}
+.event__desc{color:var(--muted);font-size:.92rem;margin:0 0 14px}
+.event__actions{display:flex;flex-wrap:wrap;gap:8px}
+
+/* CHIP */
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 11px;border-radius:var(--r-pill);background:var(--blue-soft);color:var(--blue);font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase}
+.chip--grey{background:var(--mist);color:var(--muted)}
+.chip--navy{background:var(--navy);color:#fff}
+
+/* STATS */
+.stat{text-align:center}
+.stat__n{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,3.4rem);font-weight:700;color:var(--blue);line-height:1;letter-spacing:-.02em}
+.section--navy .stat__n{color:#fff}
+.stat__l{color:var(--muted);font-size:.92rem;font-weight:600;margin-top:12px}
+.section--navy .stat__l{color:#C6D2E8}
+
+/* TIMELINE */
+.timeline{position:relative;margin-left:6px;padding-left:36px}
+.timeline::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:2px;background:var(--line)}
+.tl-item{position:relative;padding-bottom:32px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-44px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--blue);border:3px solid var(--white);box-shadow:0 0 0 2px var(--blue)}
+.section--mist .tl-item::before{border-color:var(--mist)}
+.tl-item__w{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+.tl-item h3{font-size:1.18rem;margin-bottom:8px}
+.tl-item ul{color:var(--muted);font-size:.95rem}
+.tl-item li{margin:4px 0}
+
+/* FORMS */
+.form{display:grid;gap:18px}
+.form__row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:620px){.form__row{grid-template-columns:1fr}}
+.field{display:grid;gap:8px}
+.field label{font-size:.86rem;font-weight:700;color:var(--ink)}
+.field label .req{color:var(--blue)}
+.field input,.field select,.field textarea{width:100%;padding:13px 15px;border-radius:var(--r-sm);border:1.5px solid var(--line-strong);background:var(--white);color:var(--ink);transition:border-color var(--dur-fast),box-shadow var(--dur-fast);-webkit-appearance:none;appearance:none}
+.field select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235B6472' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+.field textarea{resize:vertical;min-height:120px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,74,173,.15)}
+.field__err{font-size:.78rem;color:var(--err);font-weight:600;display:none}
+.field.has-error input,.field.has-error select,.field.has-error textarea{border-color:var(--err)}
+.field.has-error .field__err{display:block}
+.check-grid{display:flex;flex-wrap:wrap;gap:8px}
+.check-grid label{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:var(--r-pill);background:var(--mist);font-size:.85rem;font-weight:600;cursor:pointer;border:1.5px solid transparent;transition:border-color var(--dur-fast)}
+.check-grid label:hover{border-color:var(--blue)}
+.check-grid input{width:15px;height:15px;accent-color:var(--blue);margin:0}
+.form__note{font-size:.82rem;color:var(--muted);text-align:center}
+.form__note a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+.form-success{display:none;text-align:center;padding:40px 24px;background:var(--blue-soft);border:1px solid var(--blue);border-radius:var(--r-lg)}
+.form-success.is-visible{display:block;animation:fadeUp .4s var(--ease-out)}
+.form-success__tick{width:56px;height:56px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;margin:0 auto 16px}
+.form-success h3{color:var(--navy);margin-bottom:8px}
+.form-success p{color:var(--muted);margin:0 0 20px}
+
+/* FILTERS */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.filter{padding:9px 18px;border-radius:var(--r-pill);border:1.5px solid var(--line-strong);background:transparent;color:var(--muted);font-size:.86rem;font-weight:700;transition:all var(--dur-fast)}
+.filter:hover{border-color:var(--blue);color:var(--blue)}
+.filter.is-active{background:var(--blue);border-color:var(--blue);color:#fff}
+.search-bar{position:relative;margin-bottom:20px;max-width:480px}
+.search-bar input{width:100%;padding:14px 16px 14px 44px;border-radius:var(--r-pill);border:1.5px solid var(--line-strong);background:var(--white);font-size:.96rem}
+.search-bar input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,74,173,.15)}
+.search-bar svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted);pointer-events:none}
+.empty-state{display:none;padding:48px 24px;text-align:center;color:var(--muted);border:1px dashed var(--line-strong);border-radius:var(--r-lg)}
+.empty-state.is-visible{display:block}
+
+/* OPPORTUNITY */
+.opp{display:flex;flex-direction:column;gap:12px}
+.opp__head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.opp__org{color:var(--muted);font-size:.88rem;font-weight:600}
+.opp__skills{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.opp__skills span{padding:3px 10px;border-radius:var(--r-pill);background:var(--mist);color:var(--muted);font-size:.74rem;font-weight:600}
+.opp__meta{display:flex;flex-wrap:wrap;gap:14px;color:var(--muted);font-size:.84rem;margin-top:8px}
+.opp__actions{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px;padding-top:12px;border-top:1px solid var(--line)}
+
+/* REGION GRID */
+.region-wrap{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);padding:28px;overflow:hidden}
+.region-wrap::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(14,31,74,.06) 1.4px,transparent 1.5px);background-size:26px 26px;pointer-events:none}
+[data-theme="dark"] .region-wrap::before{background-image:radial-gradient(rgba(255,255,255,.06) 1.4px,transparent 1.5px)}
+.region-grid{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.region{padding:18px;border-radius:var(--r-md);border:1.5px solid var(--line);background:var(--white);text-align:left;transition:all var(--dur-fast);cursor:pointer;font-family:inherit}
+.region:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:var(--sh-sm)}
+.region.is-active{border-color:var(--blue);background:var(--blue-soft)}
+.region b{display:block;font-size:.95rem;font-weight:700;color:var(--ink)}
+.region span{font-size:.78rem;color:var(--muted);margin-top:4px;display:block}
+.region.is-active b{color:var(--blue)}
+.region-detail{margin-top:24px;padding:28px;border-radius:var(--r-lg);background:var(--white);border:1px solid var(--line);display:none}
+.region-detail.is-visible{display:block;animation:fadeUp .4s var(--ease-out)}
+.region-detail h3{margin-bottom:6px}
+.region-detail__dir{color:var(--blue);font-weight:700;font-size:.88rem;margin-bottom:16px}
+.region-detail__meta{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:16px 0}
+@media(max-width:520px){.region-detail__meta{grid-template-columns:1fr}}
+.region-detail__meta h4{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.region-detail__meta p{margin:0;font-size:.94rem}
+
+/* PERSON */
+.person{text-align:center}
+.person__pic{width:120px;height:120px;border-radius:50%;margin:0 auto 18px;overflow:hidden;background:var(--navy);position:relative;border:4px solid var(--white);box-shadow:var(--sh-sm)}
+.section--mist .person__pic{border-color:var(--mist)}
+.person__pic img{width:100%;height:100%;object-fit:cover}
+.person__pic .fb{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-family:var(--font-serif);font-size:2rem;font-weight:700}
+.person h3{font-size:1.15rem}
+.person__role{color:var(--blue);font-size:.86rem;font-weight:700;margin-top:4px}
+.person p{color:var(--muted);font-size:.9rem;margin-top:14px}
+.person__socials{display:flex;justify-content:center;gap:8px;margin-top:14px}
+.person__socials a{width:32px;height:32px;border-radius:var(--r-sm);background:var(--mist);color:var(--muted);display:grid;place-items:center;transition:background var(--dur-fast),color var(--dur-fast)}
+.person__socials a:hover{background:var(--blue);color:#fff}
+.person__socials svg{width:14px;height:14px}
+
+/* FAQ */
+.faq{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;text-align:left;padding:20px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;font-weight:700;font-size:1.02rem;color:var(--ink);font-family:inherit}
+.faq-q .plus{width:28px;height:28px;border-radius:50%;background:var(--mist);color:var(--blue);display:grid;place-items:center;flex-shrink:0;transition:transform var(--dur),background var(--dur-fast)}
+.faq-item.is-open .faq-q .plus{transform:rotate(45deg);background:var(--blue);color:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height var(--dur-slow) var(--ease),padding var(--dur-slow) var(--ease);color:var(--muted)}
+.faq-item.is-open .faq-a{max-height:400px;padding-bottom:20px}
+.faq-a p{margin:0}
+
+/* FOOTER */
+.site-footer{background:var(--navy);color:#C6D2E8;padding:clamp(56px,7vw,88px) 0 24px;position:relative;overflow:hidden}
+.site-footer::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1.4px,transparent 1.5px);background-size:32px 32px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 70%);mask-image:linear-gradient(180deg,#000,transparent 70%);pointer-events:none}
+.site-footer .container{position:relative}
+.footer-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1.4fr;gap:44px}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr;gap:32px}}
+.site-footer h4{color:#fff;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:16px;font-family:var(--font-sans)}
+.site-footer a{color:#C6D2E8;font-size:.92rem;padding:6px 0;display:block;transition:color var(--dur-fast)}
+.site-footer a:hover{color:#fff}
+.site-footer .brand{color:#fff;margin-bottom:16px}
+.site-footer .brand span{color:#8FB0E6}
+.site-footer .about{font-size:.92rem;color:#A9B5CE;max-width:34ch;margin-bottom:16px}
+.social{display:flex;gap:10px}
+.social a{width:38px;height:38px;border-radius:var(--r-md);background:rgba(255,255,255,.08);display:grid;place-items:center;padding:0;transition:background var(--dur-fast),transform var(--dur-fast)}
+.social a:hover{background:var(--blue);transform:translateY(-2px)}
+.social svg{width:17px;height:17px}
+.wa-btn{display:inline-flex!important;align-items:center;gap:8px;padding:10px 18px!important;border-radius:var(--r-pill);background:var(--wa);color:#fff!important;font-weight:700;margin-top:12px;width:auto!important;transition:background var(--dur-fast)}
+.wa-btn:hover{background:var(--wa-dark)}
+.wa-btn svg{width:16px;height:16px}
+.footer-bottom{margin-top:52px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;font-size:.84rem;color:#8FA0C0}
+.footer-bottom .journey-line{color:#C6D2E8;font-weight:600}
+.footer-bottom a{display:inline;padding:0}
+
+/* CTA BAND */
+.cta-band{background:var(--navy);color:#fff;border-radius:var(--r-xl);padding:clamp(40px,5vw,64px);position:relative;overflow:hidden}
+.cta-band::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1.5px,transparent 1.6px);background-size:30px 30px;-webkit-mask-image:radial-gradient(ellipse 70% 80% at 80% 20%,#000,transparent 70%);mask-image:radial-gradient(ellipse 70% 80% at 80% 20%,#000,transparent 70%);pointer-events:none}
+.cta-band > *{position:relative}
+.cta-band h2{color:#fff}
+.cta-band p{color:#C6D2E8;max-width:52ch;margin:16px 0 24px}
+.cta-band__actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* LOGOS */
+.logos{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px}
+.logo-slot{height:84px;border-radius:var(--r-md);border:1px solid var(--line);background:var(--white);display:grid;place-items:center;color:var(--grey);font-weight:700;font-size:.84rem;text-align:center;padding:8px;transition:border-color var(--dur-fast),color var(--dur-fast)}
+.logo-slot:hover{border-color:var(--blue);color:var(--blue)}
+
+/* BIG LIST */
+.big-list{display:grid;gap:12px}
+.big-list__row{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;border-radius:var(--r-md);background:var(--white);border:1px solid var(--line)}
+.section--mist .big-list__row{background:var(--white)}
+.big-list__n{font-family:var(--font-serif);font-weight:700;color:var(--blue);font-size:1.05rem;min-width:30px;line-height:1.4}
+.big-list__n--wa{background:var(--wa);color:#fff;width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-size:0;padding:0}
+.big-list__n--wa svg{width:18px;height:18px}
+.big-list__row h4{margin-bottom:4px}
+.big-list__row p{margin:0;color:var(--muted);font-size:.92rem}
+
+/* TICK LIST */
+.tick-list{display:grid;gap:12px}
+.tick-list li{display:flex;gap:12px;align-items:flex-start;font-size:.96rem}
+.tick-list svg{flex-shrink:0;margin-top:3px;color:var(--blue)}
+
+/* MODAL */
+.modal{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.is-open{display:flex}
+.modal__scrim{position:absolute;inset:0;background:rgba(14,31,74,.6);animation:fadeIn .2s var(--ease-out)}
+.modal__box{position:relative;background:var(--white);border-radius:var(--r-lg);width:100%;max-width:540px;max-height:90vh;overflow-y:auto;box-shadow:var(--sh-lg);animation:modalIn .3s var(--ease-out)}
+.modal__head{padding:22px 26px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.modal__head h3{font-size:1.15rem;margin:0}
+.modal__head .sub{font-size:.84rem;color:var(--muted);margin-top:4px}
+.modal__body{padding:26px}
+
+/* TOASTS */
+.toasts{position:fixed;bottom:24px;right:88px;z-index:400;display:grid;gap:10px;pointer-events:none}
+@media(max-width:560px){.toasts{bottom:80px;right:18px;left:18px}}
+.toast{background:var(--navy);color:#fff;padding:14px 20px;border-radius:var(--r-md);box-shadow:var(--sh-lg);display:flex;align-items:center;gap:12px;font-size:.92rem;font-weight:600;max-width:min(380px,86vw);pointer-events:auto;animation:toastIn .3s var(--ease-out)}
+.toast__ok{width:24px;height:24px;border-radius:50%;background:var(--blue);display:grid;place-items:center;flex-shrink:0}
+.toast__ok svg{width:13px;height:13px}
+.toast.is-out{animation:toastOut .25s var(--ease-out) forwards}
+
+/* TO TOP */
+.to-top{position:fixed;bottom:24px;left:24px;z-index:80;width:46px;height:46px;border-radius:var(--r-md);background:var(--navy);color:#fff;display:grid;place-items:center;box-shadow:var(--sh-lg);opacity:0;pointer-events:none;transition:opacity var(--dur),transform var(--dur),background var(--dur-fast)}
+.to-top.is-visible{opacity:1;pointer-events:auto}
+.to-top:hover{transform:translateY(-3px);background:var(--blue)}
+
+/* FLOATING WHATSAPP */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:95;width:58px;height:58px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 12px 28px rgba(37,211,102,.4),0 4px 10px rgba(0,0,0,.15);transition:transform var(--dur),box-shadow var(--dur),background var(--dur-fast);animation:waPulse 2.4s ease-in-out infinite}
+.wa-float:hover{transform:translateY(-4px) scale(1.06);background:var(--wa-dark);box-shadow:0 16px 34px rgba(37,211,102,.5)}
+.wa-float svg{width:30px;height:30px}
+.wa-float__label{position:absolute;right:72px;top:50%;transform:translateY(-50%) translateX(6px);background:var(--navy);color:#fff;padding:8px 14px;border-radius:var(--r-pill);font-size:.84rem;font-weight:600;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity var(--dur),transform var(--dur)}
+.wa-float:hover .wa-float__label{opacity:1;transform:translateY(-50%) translateX(0)}
+@media(max-width:560px){.wa-float{width:52px;height:52px;bottom:18px;right:18px}.wa-float svg{width:26px;height:26px}.wa-float__label{display:none}.to-top{bottom:18px;left:18px}}
+@keyframes waPulse{0%,100%{box-shadow:0 12px 28px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,.5)}50%{box-shadow:0 12px 28px rgba(37,211,102,.4),0 0 0 12px rgba(37,211,102,0)}}
+@media (prefers-reduced-motion:reduce){.wa-float{animation:none}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity var(--dur-slow) var(--ease-out),transform var(--dur-slow) var(--ease-out)}
+.reveal.is-visible{opacity:1;transform:none}
+
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes toastIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes toastOut{to{opacity:0;transform:translateY(8px)}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+
+/* UTILS */
+.center{text-align:center}
+.mt-1{margin-top:8px}.mt-2{margin-top:16px}.mt-3{margin-top:24px}.mt-4{margin-top:36px}.mt-5{margin-top:52px}
+.mb-2{margin-bottom:16px}.mb-3{margin-bottom:24px}.mb-4{margin-bottom:36px}
+.muted{color:var(--muted)}
+.meta-note{font-size:.84rem;color:var(--muted);font-style:italic;max-width:70ch;margin-top:16px}
+
+/* PAGE SWITCH */
+.page{display:none}
+.page.is-active{display:block;animation:pageIn .35s var(--ease-out)}
+@keyframes pageIn{from{opacity:0}to{opacity:1}}
+
+@media print{.site-header,.mobile-nav,.to-top,.toasts,.wa-float{display:none!important}.page{display:block!important}}
+</style>
+</head>
+<body>
+
+<a href="#main" class="sr-only">Skip to content</a>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="#/" class="brand" aria-label="Connecting Dots — Home">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <circle cx="9" cy="9" r="3.4" fill="#004AAD"/>
+        <circle cx="31" cy="12" r="2.6" fill="#0E1F4A"/>
+        <circle cx="13" cy="30" r="2.6" fill="#0E1F4A"/>
+        <circle cx="31" cy="31" r="3.4" fill="#004AAD"/>
+        <path d="M9 9 L31 12 M9 9 L13 30 M31 12 L31 31 M13 30 L31 31 M9 9 L31 31" stroke="#004AAD" stroke-width="1.3" opacity=".55"/>
+      </svg>
+      Connecting<span>Dots</span>
+    </a>
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+      <a href="#/">Home</a>
+      <a href="#/about">About</a>
+      <a href="#/programs">Programs</a>
+      <a href="#/events">Events</a>
+      <a href="#/opportunities">Opportunity Hub</a>
+      <a href="#/team">Team</a>
+      <a href="#/partners">Partners</a>
+      <a href="#/join" class="nav-cta">Join Now</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="https://wa.me/920000000000" target="_blank" rel="noopener" class="wa-header" aria-label="Join WhatsApp community" title="WhatsApp community">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.7 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.8-.6-3.1-1.3-5.1-4.4-5.3-4.6-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1.1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.4.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.8-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.4.1.3.1.8-.1 1.2z"/></svg>
+      </a>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle colour theme" title="Toggle theme">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= MOBILE NAV ================= -->
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <div class="mobile-nav__scrim" data-close-nav></div>
+  <div class="mobile-nav__panel" role="dialog" aria-label="Menu">
+    <div class="mobile-nav__head">
+      <span class="brand"><svg width="28" height="28" viewBox="0 0 40 40" fill="none"><circle cx="9" cy="9" r="3.4" fill="#004AAD"/><circle cx="31" cy="12" r="2.6" fill="#0E1F4A"/><circle cx="13" cy="30" r="2.6" fill="#0E1F4A"/><circle cx="31" cy="31" r="3.4" fill="#004AAD"/><path d="M9 9 L31 12 M9 9 L13 30 M31 12 L31 31 M13 30 L31 31" stroke="#004AAD" stroke-width="1.3" opacity=".55"/></svg>Connecting<span>Dots</span></span>
+      <button class="icon-btn" data-close-nav aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <nav>
+      <a href="#/">Home</a>
+      <a href="#/about">About</a>
+      <a href="#/programs">Programs</a>
+      <a href="#/events">Events</a>
+      <a href="#/opportunities">Opportunity Hub</a>
+      <a href="#/team">Team &amp; Regions</a>
+      <a href="#/partners">Partners</a>
+      <div class="divider"></div>
+      <a href="#/impact" class="sub">Impact &amp; Roadmap</a>
+      <a href="#/contact" class="sub">Contact</a>
+      <a href="#/join" class="nav-cta">Join Now</a>
+      <a href="https://wa.me/920000000000" target="_blank" rel="noopener" class="wa-drawer">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.7 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.8-.6-3.1-1.3-5.1-4.4-5.3-4.6-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1.1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.4.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.8-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.4.1.3.1.8-.1 1.2z"/></svg>
+        Join WhatsApp community
+      </a>
+    </nav>
+  </div>
+</div>
+
+<!-- ================= MAIN ================= -->
+<main id="main">
+
+<!-- ============ HOME ============ -->
+<section class="page is-active" id="page-home">
+  <div class="hero">
+    <div class="container hero__inner">
+      <div>
+        <span class="eyebrow" style="color:#8FB0E6">Pakistan's youth digital skills movement</span>
+        <h1>Less motivation. <em>More practical skills.</em></h1>
+        <p class="hero__sub">Connecting Dots brings young people, mentors, institutions and opportunities together through practical learning, community and real-world pathways.</p>
+        <div class="hero__cta">
+          <a href="#/join" class="btn btn--on-navy btn--lg">Join Now
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#/programs" class="btn btn--outline-navy btn--lg">Explore Programs</a>
+        </div>
+        <div class="hero__journey" aria-label="The five-step journey">
+          <span><i></i>Connect</span><span><i></i>Learn</span><span><i></i>Adapt</span><span><i></i>Build</span><span><i></i>Grow</span>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <canvas id="networkCanvas" aria-label="Connected dots network visual" role="img"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Journey -->
+  <div class="section">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">The journey</span>
+        <h2>Five steps, one clear path</h2>
+        <p>Every program, event and opportunity is built around this journey — so members always know where they are and what comes next.</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="card step-card reveal"><span class="num">01</span><h3>Connect</h3><p>Find your people, community and networks — in your city and online.</p></div>
+        <div class="card step-card reveal"><span class="num">02</span><h3>Learn</h3><p>Build practical digital and career skills through focused masterclasses.</p></div>
+        <div class="card step-card reveal"><span class="num">03</span><h3>Adapt</h3><p>Keep pace with changing technology, tools and the future of work.</p></div>
+        <div class="card step-card reveal"><span class="num">04</span><h3>Build</h3><p>Turn learning into real projects, ideas, portfolios and action.</p></div>
+        <div class="card step-card reveal"><span class="num">05</span><h3>Grow</h3><p>Access opportunities, mentors and pathways to the next stage.</p></div>
+        <div class="card card--feature reveal">
+          <div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
+          <h3>Your next step</h3>
+          <p>Start with one masterclass or join the community WhatsApp. Everything builds from there.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:18px">
+            <a href="#/join" class="btn btn--on-navy btn--sm">Join the community</a>
+            <a href="https://wa.me/920000000000" target="_blank" rel="noopener" class="btn btn--wa btn--sm">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.7 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.8-.6-3.1-1.3-5.1-4.4-5.3-4.6-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1.1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.4.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.8-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.4.1.3.1.8-.1 1.2z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Who it's for -->
+  <div class="section section--mist">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">Who it's for</span>
+        <h2>Built for everyone building something</h2>
+        <p>From students to businesses, from freelancers to universities — if you want practical skills and real opportunity, there's a place for you.</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="card reveal"><div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg></div><h3>Students</h3><p>Learn skills your degree doesn't teach and build a portfolio before you graduate.</p></div>
+        <div class="card reveal"><div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><h3>Freelancers</h3><p>Sharpen your skills, find projects and connect with clients who value quality.</p></div>
+        <div class="card reveal"><div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg></div><h3>Professionals</h3><p>Adapt to new tools, lead in your field and mentor the next generation.</p></div>
+        <div class="card reveal"><div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Entrepreneurs</h3><p>Turn ideas into startups with mentors, peers and access to real opportunities.</p></div>
+        <div class="card reveal"><div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3>Mentors &amp; Experts</h3><p>Share what you know, grow your reputation and shape national talent.</p></div>
+        <div class="card reveal"><div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg></div><h3>Businesses</h3><p>Reach motivated talent, train teams and post real opportunities.</p></div>
+        <div class="card reveal"><div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg></div><h3>Universities</h3><p>Run campus chapters, co-brand masterclasses and open doors for students.</p></div>
+        <div class="card reveal"><div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg></div><h3>Organizations</h3><p>Partner with us to reach and empower young people across Pakistan.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Impact (navy) -->
+  <div class="section section--navy">
+    <div class="container">
+      <div class="section__head section__head--center reveal">
+        <span class="eyebrow">Impact</span>
+        <h2>The scale we're building toward</h2>
+        <p>Strategic ambitions for 2027–2030, tracked honestly as the movement grows.</p>
+      </div>
+      <div class="grid grid--4">
+        <div class="stat reveal"><div class="stat__n" data-count="100" data-suffix="+">0</div><div class="stat__l">Training Academies</div></div>
+        <div class="stat reveal"><div class="stat__n" data-count="100000" data-suffix="+">0</div><div class="stat__l">Students</div></div>
+        <div class="stat reveal"><div class="stat__n" data-count="500" data-suffix="+">0</div><div class="stat__l">Masterclasses / Year</div></div>
+        <div class="stat reveal"><div class="stat__n" data-count="500" data-suffix="+">0</div><div class="stat__l">Mentors</div></div>
+      </div>
+      <p class="meta-note center" style="color:#8FA0C0;margin-top:24px">Strategic ambitions — to be updated with verified live numbers as the movement grows.</p>
+    </div>
+  </div>
+
+  <!-- Events preview -->
+  <div class="section">
+    <div class="container">
+      <div class="section__head reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;max-width:none">
+        <div>
+          <span class="eyebrow">What's happening</span>
+          <h2>Upcoming events</h2>
+        </div>
+        <a href="#/events" class="btn btn--ghost">View All Events
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="grid grid--3">
+        <article class="event reveal">
+          <div class="event__date"><span>Oct</span><b>14</b></div>
+          <div>
+            <h3>Intro to AI Tools</h3>
+            <div class="event__meta"><span class="chip">Masterclass</span><span>Online · 6 PM PKT</span></div>
+            <p class="event__desc">Get hands-on with the AI tools changing how work gets done.</p>
+            <div class="event__actions">
+              <button class="btn btn--primary btn--sm" data-register="Intro to AI Tools" data-date="14 Oct 2026 · 6 PM PKT">Register</button>
+            </div>
+          </div>
+        </article>
+        <article class="event reveal">
+          <div class="event__date"><span>Oct</span><b>22</b></div>
+          <div>
+            <h3>Regional Meetup — Karachi</h3>
+            <div class="event__meta"><span class="chip">Meetup</span><span>In person · Sindh</span></div>
+            <p class="event__desc">Local community meetup for members in Sindh.</p>
+            <div class="event__actions">
+              <button class="btn btn--primary btn--sm" data-register="Regional Meetup — Karachi" data-date="22 Oct 2026 · Karachi">Register</button>
+            </div>
+          </div>
+        </article>
+        <article class="event reveal">
+          <div class="event__date"><span>Nov</span><b>05</b></div>
+          <div>
+            <h3>Freelancing Career Bootcamp</h3>
+            <div class="event__meta"><span class="chip">Bootcamp</span><span>Online · Nationwide</span></div>
+            <p class="event__desc">Land your first client and price your work confidently.</p>
+            <div class="event__actions">
+              <button class="btn btn--primary btn--sm" data-register="Freelancing Career Bootcamp" data-date="5 Nov 2026 · Online">Register</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- Final CTA -->
+  <div class="section section--mist">
+    <div class="container">
+      <div class="cta-band reveal">
+        <span class="eyebrow" style="color:#8FB0E6">Join the movement</span>
+        <h2>Ready to connect?</h2>
+        <p>Join the community or explore the next practical learning opportunity.</p>
+        <div class="cta-band__actions">
+          <a href="#/join" class="btn btn--on-navy btn--lg">Join the Community</a>
+          <a href="https://wa.me/920000000000" target="_blank" rel="noopener" class="btn btn--wa btn--lg">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.7 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.8-.6-3.1-1.3-5.1-4.4-5.3-4.6-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1.1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.4.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.8-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.4.1.3.1.8-.1 1.2z"/></svg>
+            WhatsApp Community
+          </a>
+          <a href="#/programs" class="btn btn--outline-navy btn--lg">Explore Programs</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="page" id="page-about">
+  <div class="page-hero">
+    <div class="container">
+      <div class="crumb"><a href="#/">Home</a> <span class="sep">/</span> <span>About</span></div>
+      <h1>Why Connecting Dots exists</h1>
+      <p>Pakistan has one of the youngest populations in the world — and one of the biggest gaps between education and real opportunity. We're closing it.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container two-col">
+      <div class="reveal">
+        <span class="eyebrow">Introduction</span>
+        <h2>What Connecting Dots is</h2>
+        <p class="lead">Connecting Dots is a national youth digital skills movement for Pakistan, built for people aged 16–35. We bring together learners, mentors, institutions and opportunities through practical masterclasses, regional chapters, mentorship and a real opportunity hub.</p>
+        <p class="lead">Our core belief: less motivation, more practical skills.</p>
+        <a href="#/join" class="btn btn--primary" style="margin-top:16px">Join the movement</a>
+      </div>
+      <div class="big-list reveal">
+        <div class="big-list__row"><span class="big-list__n">01</span><div><h4>Skills gap</h4><p>Education rarely matches what employers actually need.</p></div></div>
+        <div class="big-list__row"><span class="big-list__n">02</span><div><h4>Technology gap</h4><p>Limited access to modern tools, devices and reliable internet.</p></div></div>
+        <div class="big-list__row"><span class="big-list__n">03</span><div><h4>Career gap</h4><p>No clear guidance on paths, portfolios or how to get hired.</p></div></div>
+        <div class="big-list__row"><span class="big-list__n">04</span><div><h4>Opportunity gap</h4><p>Jobs, internships and scholarships are scattered and hard to find.</p></div></div>
+        <div class="big-list__row"><span class="big-list__n">05</span><div><h4>Network gap</h4><p>Who you know still matters more than what you can do.</p></div></div>
+        <div class="big-list__row"><span class="big-list__n">06</span><div><h4>Entrepreneurship gap</h4><p>Ideas rarely get the mentorship or capital to become businesses.</p></div></div>
+        <div class="big-list__row"><span class="big-list__n">07</span><div><h4>Geographic gap</h4><p>Talent outside big cities gets far fewer chances.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--mist">
+    <div class="container">
+      <div class="grid grid--2">
+        <div class="card reveal">
+          <div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg></div>
+          <h3>Vision</h3>
+          <p>A Pakistan where every young person — regardless of city, background or income — can access the skills, mentorship and opportunities to build a meaningful career.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <h3>Mission</h3>
+          <p>To build a national youth digital skills movement through practical masterclasses, regional communities, mentorship and a real opportunity hub.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">Core philosophy</span>
+        <h2>The five-step journey</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="card step-card reveal"><span class="num">01</span><h3>Connect</h3><p>Find your people, community and networks.</p></div>
+        <div class="card step-card reveal"><span class="num">02</span><h3>Learn</h3><p>Build practical digital and career skills.</p></div>
+        <div class="card step-card reveal"><span class="num">03</span><h3>Adapt</h3><p>Keep pace with changing technology and work.</p></div>
+        <div class="card step-card reveal"><span class="num">04</span><h3>Build</h3><p>Turn learning into projects, ideas and action.</p></div>
+        <div class="card step-card reveal"><span class="num">05</span><h3>Grow</h3><p>Access opportunities, mentors and pathways.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--mist">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">Community values</span>
+        <h2>What we stand for</h2>
+      </div>
+      <div class="grid grid--4">
+        <div class="card reveal"><h3>Practical</h3><p>Every session ends with something you can use.</p></div>
+        <div class="card reveal"><h3>Connected</h3><p>Community-first — members help members.</p></div>
+        <div class="card reveal"><h3>Inclusive</h3><p>Free or low-cost, and built for slower connections.</p></div>
+        <div class="card reveal"><h3>Growth-minded</h3><p>We build institutions and careers, not one-off events.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">Core objectives</span>
+        <h2>Six objectives that guide us</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="card reveal"><span class="num" style="display:inline-grid;place-items:center;width:38px;height:38px;border-radius:8px;background:var(--blue);color:#fff;font-family:var(--font-serif);font-weight:700;margin-bottom:16px">01</span><h3>Digital skills</h3><p>Deliver 500+ practical masterclasses a year across seven core areas.</p></div>
+        <div class="card reveal"><span class="num" style="display:inline-grid;place-items:center;width:38px;height:38px;border-radius:8px;background:var(--blue);color:#fff;font-family:var(--font-serif);font-weight:700;margin-bottom:16px">02</span><h3>Career pathways</h3><p>Connect talent to real jobs, internships and freelance projects.</p></div>
+        <div class="card reveal"><span class="num" style="display:inline-grid;place-items:center;width:38px;height:38px;border-radius:8px;background:var(--blue);color:#fff;font-family:var(--font-serif);font-weight:700;margin-bottom:16px">03</span><h3>Entrepreneurship</h3><p>Support early founders with mentorship, peers and validation.</p></div>
+        <div class="card reveal"><span class="num" style="display:inline-grid;place-items:center;width:38px;height:38px;border-radius:8px;background:var(--blue);color:#fff;font-family:var(--font-serif);font-weight:700;margin-bottom:16px">04</span><h3>Networking</h3><p>Build regional and national networks members can rely on.</p></div>
+        <div class="card reveal"><span class="num" style="display:inline-grid;place-items:center;width:38px;height:38px;border-radius:8px;background:var(--blue);color:#fff;font-family:var(--font-serif);font-weight:700;margin-bottom:16px">05</span><h3>Mentorship</h3><p>Recruit and support 500+ active mentors across industries.</p></div>
+        <div class="card reveal"><span class="num" style="display:inline-grid;place-items:center;width:38px;height:38px;border-radius:8px;background:var(--blue);color:#fff;font-family:var(--font-serif);font-weight:700;margin-bottom:16px">06</span><h3>Opportunities</h3><p>Run a national Opportunity Hub for jobs, gigs and scholarships.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAMS ============ -->
+<section class="page" id="page-programs">
+  <div class="page-hero">
+    <div class="container">
+      <div class="crumb"><a href="#/">Home</a> <span class="sep">/</span> <span>Programs</span></div>
+      <h1>What you can learn</h1>
+      <p>Seven core areas, practical masterclasses, and a learning model built around doing — not just watching.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">Seven core areas</span>
+        <h2>Everything we teach fits into these</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="card reveal"><div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg></div><h3>Digital Skills</h3><p>Web, design, data, marketing, productivity tools and the fundamentals of working online.</p><a href="#/events" class="btn btn--ghost btn--sm" style="margin-top:14px">Learn More</a></div>
+        <div class="card reveal"><div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v1a3 3 0 0 0-3 3v1a3 3 0 0 0-1 5.8V19a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3.2A3 3 0 0 0 19 10V9a3 3 0 0 0-3-3V5a3 3 0 0 0-3-3z"/></svg></div><h3>AI &amp; Emerging Tech</h3><p>AI tools, automation, no-code and the technologies reshaping every industry.</p><a href="#/events" class="btn btn--ghost btn--sm" style="margin-top:14px">Learn More</a></div>
+        <div class="card reveal"><div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21V9l6-5 6 5v12M9 21v-6h6v6"/></svg></div><h3>Career</h3><p>CVs, portfolios, interviews, LinkedIn and how to actually get hired.</p><a href="#/events" class="btn btn--ghost btn--sm" style="margin-top:14px">Learn More</a></div>
+        <div class="card reveal"><div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Entrepreneurship</h3><p>Ideation, validation, business models and taking the first real step.</p><a href="#/events" class="btn btn--ghost btn--sm" style="margin-top:14px">Learn More</a></div>
+        <div class="card reveal"><div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div><h3>Networking</h3><p>Build a real professional network in your city and online.</p><a href="#/events" class="btn btn--ghost btn--sm" style="margin-top:14px">Learn More</a></div>
+        <div class="card reveal"><div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V6l-8-4z"/></svg></div><h3>Mentorship</h3><p>Get matched with mentors who've walked the path you want.</p><a href="#/events" class="btn btn--ghost btn--sm" style="margin-top:14px">Learn More</a></div>
+        <div class="card reveal"><div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-4V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM10 5h4v2h-4z"/></svg></div><h3>Opportunities</h3><p>Jobs, internships, freelance projects, scholarships and competitions.</p><a href="#/opportunities" class="btn btn--ghost btn--sm" style="margin-top:14px">Learn More</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--mist">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">Masterclasses</span>
+        <h2>100+ practical masterclasses</h2>
+        <p>Register for an upcoming masterclass and start your journey. New sessions added weekly. <em class="muted">(Example data — easy to replace.)</em></p>
+      </div>
+      <div class="grid grid--3">
+        <div class="card reveal"><span class="chip">AI · Beginner</span><h3 class="mt-2">AI for Practical Work</h3><p>Hands-on with the AI tools changing how work gets done.</p><div class="event__meta" style="margin-top:12px"><span>Trainer: TBA</span><span>14 Oct 2026</span><span>Online</span></div><button class="btn btn--primary btn--sm" style="margin-top:14px" data-register="AI for Practical Work" data-date="14 Oct 2026">Register</button></div>
+        <div class="card reveal"><span class="chip">Marketing · Beginner</span><h3 class="mt-2">Digital Marketing</h3><p>Build a real campaign from scratch — social, SEO and content basics.</p><div class="event__meta" style="margin-top:12px"><span>Trainer: TBA</span><span>21 Oct 2026</span><span>Online</span></div><button class="btn btn--primary btn--sm" style="margin-top:14px" data-register="Digital Marketing" data-date="21 Oct 2026">Register</button></div>
+        <div class="card reveal"><span class="chip">Freelancing · Beginner</span><h3 class="mt-2">Freelancing Foundations</h3><p>Set up profiles, price your work and land your first client.</p><div class="event__meta" style="margin-top:12px"><span>Trainer: TBA</span><span>5 Nov 2026</span><span>Online</span></div><button class="btn btn--primary btn--sm" style="margin-top:14px" data-register="Freelancing Foundations" data-date="5 Nov 2026">Register</button></div>
+        <div class="card reveal"><span class="chip">Career · Intermediate</span><h3 class="mt-2">Career Readiness</h3><p>CVs, LinkedIn, interviews and job-search strategy.</p><div class="event__meta" style="margin-top:12px"><span>Trainer: TBA</span><span>12 Nov 2026</span><span>Online</span></div><button class="btn btn--primary btn--sm" style="margin-top:14px" data-register="Career Readiness" data-date="12 Nov 2026">Register</button></div>
+        <div class="card reveal"><span class="chip">Entrepreneurship</span><h3 class="mt-2">Founder Basics</h3><p>Validate an idea, talk to customers and shape a first offer.</p><div class="event__meta" style="margin-top:12px"><span>Trainer: TBA</span><span>3 Dec 2026</span><span>Lahore</span></div><button class="btn btn--primary btn--sm" style="margin-top:14px" data-register="Founder Basics" data-date="3 Dec 2026 · Lahore">Register</button></div>
+        <div class="card reveal"><span class="chip">Tech · Intermediate</span><h3 class="mt-2">Emerging Technologies</h3><p>What's coming next and how to prepare for it.</p><div class="event__meta" style="margin-top:12px"><span>Trainer: TBA</span><span>10 Dec 2026</span><span>Online</span></div><button class="btn btn--primary btn--sm" style="margin-top:14px" data-register="Emerging Technologies" data-date="10 Dec 2026">Register</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">Learning process</span>
+        <h2>Learn → Practice → Build → Connect → Opportunity</h2>
+        <p>Every masterclass follows the same rhythm so you always leave with something real.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item reveal"><span class="tl-item__w">Step 1</span><h3>Learn</h3><p class="muted" style="margin:0">A focused, practical session with an expert trainer.</p></div>
+        <div class="tl-item reveal"><span class="tl-item__w">Step 2</span><h3>Practice</h3><p class="muted" style="margin:0">A short exercise you complete before the next session.</p></div>
+        <div class="tl-item reveal"><span class="tl-item__w">Step 3</span><h3>Build</h3><p class="muted" style="margin:0">Apply it in a project, portfolio piece or real task.</p></div>
+        <div class="tl-item reveal"><span class="tl-item__w">Step 4</span><h3>Connect</h3><p class="muted" style="margin:0">Meet peers and mentors in your region and online.</p></div>
+        <div class="tl-item reveal"><span class="tl-item__w">Step 5</span><h3>Opportunity</h3><p class="muted" style="margin:0">Get matched to jobs, gigs, scholarships or leadership roles.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EVENTS ============ -->
+<section class="page" id="page-events">
+  <div class="page-hero">
+    <div class="container">
+      <div class="crumb"><a href="#/">Home</a> <span class="sep">/</span> <span>Events</span></div>
+      <h1>Events &amp; masterclasses</h1>
+      <p>Monthly meetups, quarterly summits and the annual Digital Youth Summit — plus weekly online masterclasses.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="filters" id="eventFilters">
+        <button class="filter is-active" data-filter="all">All</button>
+        <button class="filter" data-filter="masterclass">Masterclasses</button>
+        <button class="filter" data-filter="meetup">Meetups</button>
+        <button class="filter" data-filter="summit">Summits</button>
+        <button class="filter" data-filter="fair">Career Fairs</button>
+      </div>
+      <div class="grid grid--2" id="eventList">
+        <article class="event reveal" data-type="masterclass"><div class="event__date"><span>Oct</span><b>14</b></div><div><h3>Intro to AI Tools</h3><div class="event__meta"><span class="chip">Masterclass</span><span>Online</span><span>Lahore · 6 PM PKT</span></div><p class="event__desc">Hands-on with the AI tools changing how work gets done.</p><div class="event__actions"><button class="btn btn--primary btn--sm" data-register="Intro to AI Tools" data-date="14 Oct 2026">Register</button><button class="btn btn--secondary btn--sm" data-calendar="Intro to AI Tools|20261014|Online">Add to Calendar</button></div></div></article>
+        <article class="event reveal" data-type="meetup"><div class="event__date"><span>Oct</span><b>22</b></div><div><h3>Regional Meetup — Karachi</h3><div class="event__meta"><span class="chip">Meetup</span><span>In person</span><span>Sindh</span></div><p class="event__desc">Local community meetup for members in Sindh.</p><div class="event__actions"><button class="btn btn--primary btn--sm" data-register="Regional Meetup — Karachi" data-date="22 Oct 2026 · Karachi">Register</button><button class="btn btn--secondary btn--sm" data-calendar="Regional Meetup — Karachi|20261022|Karachi">Add to Calendar</button></div></div></article>
+        <article class="event reveal" data-type="masterclass"><div class="event__date"><span>Nov</span><b>05</b></div><div><h3>Freelancing Career Bootcamp</h3><div class="event__meta"><span class="chip">Masterclass</span><span>Online</span><span>Nationwide</span></div><p class="event__desc">Land your first client and price your work confidently.</p><div class="event__actions"><button class="btn btn--primary btn--sm" data-register="Freelancing Career Bootcamp" data-date="5 Nov 2026">Register</button><button class="btn btn--secondary btn--sm" data-calendar="Freelancing Career Bootcamp|20261105|Online">Add to Calendar</button></div></div></article>
+        <article class="event reveal" data-type="summit"><div class="event__date"><span>Nov</span><b>19</b></div><div><h3>Quarterly Digital Youth Summit</h3><div class="event__meta"><span class="chip">Summit</span><span>Hybrid</span><span>Islamabad</span></div><p class="event__desc">Bringing regions together for a day of talks and workshops.</p><div class="event__actions"><button class="btn btn--primary btn--sm" data-register="Quarterly Digital Youth Summit" data-date="19 Nov 2026 · Islamabad">Register</button><button class="btn btn--secondary btn--sm" data-calendar="Quarterly Digital Youth Summit|20261119|Islamabad">Add to Calendar</button></div></div></article>
+        <article class="event reveal" data-type="fair"><div class="event__date"><span>Dec</span><b>03</b></div><div><h3>Career Fair — Lahore</h3><div class="event__meta"><span class="chip">Career Fair</span><span>In person</span><span>Lahore</span></div><p class="event__desc">Meet employers, get CV feedback and apply on the spot.</p><div class="event__actions"><button class="btn btn--primary btn--sm" data-register="Career Fair — Lahore" data-date="3 Dec 2026 · Lahore">Register</button><button class="btn btn--secondary btn--sm" data-calendar="Career Fair — Lahore|20261203|Lahore">Add to Calendar</button></div></div></article>
+        <article class="event reveal" data-type="summit"><div class="event__date"><span>Dec</span><b>20</b></div><div><h3>Annual Digital Youth Summit 2026</h3><div class="event__meta"><span class="chip">Summit</span><span>Hybrid</span><span>Karachi</span></div><p class="event__desc">Our flagship national event — the largest gathering of the year.</p><div class="event__actions"><button class="btn btn--primary btn--sm" data-register="Annual Digital Youth Summit 2026" data-date="20 Dec 2026 · Karachi">Register</button><button class="btn btn--secondary btn--sm" data-calendar="Annual Digital Youth Summit 2026|20261220|Karachi">Add to Calendar</button></div></div></article>
+      </div>
+      <div class="empty-state" id="eventEmpty">No events match this filter yet. Try another category.</div>
+    </div>
+  </div>
+
+  <div class="section section--mist">
+    <div class="container">
+      <div class="section__head reveal"><span class="eyebrow">Event model</span><h2>A rhythm members can rely on</h2></div>
+      <div class="grid grid--3">
+        <div class="card reveal"><h3>Monthly</h3><p>Regional meetups and online talks — small, frequent, local.</p></div>
+        <div class="card reveal"><h3>Quarterly</h3><p>Summits and career fairs that bring regions together.</p></div>
+        <div class="card reveal"><h3>Annually</h3><p>The Digital Youth Summit — our flagship national event.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section__head reveal"><span class="eyebrow">Past events</span><h2>From the archive</h2></div>
+      <div class="grid grid--4">
+        <div class="card reveal" style="padding:0;overflow:hidden"><div style="aspect-ratio:4/3;background:var(--navy)"></div><div style="padding:18px"><h4>Launch Meetup 2026</h4><p style="color:var(--muted);font-size:.84rem;margin:4px 0 0">Karachi · 240 attendees</p></div></div>
+        <div class="card reveal" style="padding:0;overflow:hidden"><div style="aspect-ratio:4/3;background:var(--navy)"></div><div style="padding:18px"><h4>AI Skills Workshop</h4><p style="color:var(--muted);font-size:.84rem;margin:4px 0 0">Online · 1,200 viewers</p></div></div>
+        <div class="card reveal" style="padding:0;overflow:hidden"><div style="aspect-ratio:4/3;background:var(--navy)"></div><div style="padding:18px"><h4>Punjab Regional Summit</h4><p style="color:var(--muted);font-size:.84rem;margin:4px 0 0">Lahore · 380 attendees</p></div></div>
+        <div class="card reveal" style="padding:0;overflow:hidden"><div style="aspect-ratio:4/3;background:var(--navy)"></div><div style="padding:18px"><h4>Freelancing Bootcamp</h4><p style="color:var(--muted);font-size:.84rem;margin:4px 0 0">Online · 900 registrations</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JOIN ============ -->
+<section class="page" id="page-join">
+  <div class="page-hero">
+    <div class="container">
+      <div class="crumb"><a href="#/">Home</a> <span class="sep">/</span> <span>Join</span></div>
+      <h1>Join the movement</h1>
+      <p>Three pathways in — pick the one that fits you. You can change pathway at any time.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="grid grid--3">
+        <div class="card reveal">
+          <div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <h3>Member</h3>
+          <p>Learn, attend events, connect with people and discover opportunities.</p>
+          <ul class="tick-list mt-2">
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>All masterclasses</li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Opportunity Hub access</li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Community WhatsApp</li>
+          </ul>
+        </div>
+        <div class="card reveal" style="border-color:var(--blue);box-shadow:var(--sh-md)">
+          <span class="chip chip--navy">Most popular</span>
+          <div class="card__ico" style="margin-top:14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V6l-8-4z"/></svg></div>
+          <h3>Campus Ambassador</h3>
+          <p>Represent Connecting Dots on your campus and help build the community.</p>
+          <ul class="tick-list mt-2">
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Everything in Member</li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Campus events budget</li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Direct mentor access</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9"/></svg></div>
+          <h3>Volunteer</h3>
+          <p>Support events, activities and movement growth.</p>
+          <ul class="tick-list mt-2">
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Event experience</li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Certificate &amp; references</li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Fast track to Team Lead</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-5 reveal">
+        <span class="eyebrow">Growth path</span>
+        <h2 class="mb-3">From volunteer to Team Lead</h2>
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-item__w">Step 1</span><h3>Volunteer</h3><p class="muted" style="margin:0">Support events and community activities in your city.</p></div>
+          <div class="tl-item"><span class="tl-item__w">Step 2</span><h3>Active Member</h3><p class="muted" style="margin:0">Attend masterclasses, complete projects and engage regularly.</p></div>
+          <div class="tl-item"><span class="tl-item__w">Step 3</span><h3>Campus Ambassador</h3><p class="muted" style="margin:0">Lead your campus chapter and represent the movement.</p></div>
+          <div class="tl-item"><span class="tl-item__w">Step 4</span><h3>Team Lead</h3><p class="muted" style="margin:0">Run a regional initiative, mentor others and shape programs.</p></div>
+        </div>
+      </div>
+
+      <div class="cta-band reveal mt-5">
+        <span class="eyebrow" style="color:#8FB0E6">Fastest way to connect</span>
+        <h2>Prefer WhatsApp? Join the community directly.</h2>
+        <p>Get masterclass invites, event reminders and opportunity alerts straight to your phone.</p>
+        <div class="cta-band__actions">
+          <a href="https://wa.me/920000000000" target="_blank" rel="noopener" class="btn btn--wa btn--lg">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.7 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.8-.6-3.1-1.3-5.1-4.4-5.3-4.6-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1.1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.4.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.8-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.4.1.3.1.8-.1 1.2z"/></svg>
+            Join WhatsApp Community
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--mist">
+    <div class="container" style="max-width:760px">
+      <div class="section__head section__head--center reveal">
+        <span class="eyebrow">Registration</span>
+        <h2>Create your profile</h2>
+        <p>Takes about 60 seconds. We'll match you to masterclasses, mentors and opportunities in your region.</p>
+      </div>
+
+      <form class="form card reveal" id="joinForm" novalidate>
+        <div class="form__row">
+          <div class="field"><label for="j-name">Full name <span class="req">*</span></label><input id="j-name" name="name" type="text" placeholder="Ayesha Khan" required autocomplete="name"><span class="field__err">Please enter your name.</span></div>
+          <div class="field"><label for="j-email">Email <span class="req">*</span></label><input id="j-email" name="email" type="email" placeholder="you@example.com" required autocomplete="email"><span class="field__err">Please enter a valid email.</span></div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label for="j-phone">Phone / WhatsApp</label><input id="j-phone" name="phone" type="tel" placeholder="+92 300 0000000" autocomplete="tel"></div>
+          <div class="field"><label for="j-age">Age</label><input id="j-age" name="age" type="number" min="13" max="80" placeholder="e.g. 22"></div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label for="j-city">City</label><input id="j-city" name="city" type="text" placeholder="Lahore"></div>
+          <div class="field"><label for="j-region">Region <span class="req">*</span></label>
+            <select id="j-region" name="region" required>
+              <option value="">Select your region</option>
+              <option>Khyber Pakhtunkhwa</option><option>Sindh</option><option>South Punjab</option>
+              <option>Central Punjab</option><option>Balochistan</option><option>Gilgit-Baltistan</option><option>Kashmir</option>
+            </select><span class="field__err">Please select a region.</span>
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label for="j-path">Pathway <span class="req">*</span></label>
+            <select id="j-path" name="pathway" required>
+              <option value="">Choose a pathway</option>
+              <option>Member</option><option>Campus Ambassador</option><option>Volunteer</option>
+            </select><span class="field__err">Please choose a pathway.</span>
+          </div>
+          <div class="field"><label for="j-status">Current status</label>
+            <select id="j-status" name="status">
+              <option value="">Select status</option>
+              <option>Student</option><option>Fresh graduate</option><option>Professional</option>
+              <option>Freelancer</option><option>Entrepreneur</option><option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Areas of interest</label>
+          <div class="check-grid">
+            <label><input type="checkbox" name="interest" value="Digital Skills"><span>Digital Skills</span></label>
+            <label><input type="checkbox" name="interest" value="AI & Tech"><span>AI &amp; Tech</span></label>
+            <label><input type="checkbox" name="interest" value="Career"><span>Career</span></label>
+            <label><input type="checkbox" name="interest" value="Entrepreneurship"><span>Entrepreneurship</span></label>
+            <label><input type="checkbox" name="interest" value="Networking"><span>Networking</span></label>
+            <label><input type="checkbox" name="interest" value="Mentorship"><span>Mentorship</span></label>
+            <label><input type="checkbox" name="interest" value="Opportunities"><span>Opportunities</span></label>
+          </div>
+        </div>
+        <div class="field"><label for="j-skills">Skills you already have</label><input id="j-skills" name="skills" type="text" placeholder="e.g. Excel, Canva, basic Python"></div>
+        <div class="field"><label for="j-msg">Anything else?</label><textarea id="j-msg" name="message" placeholder="Tell us what you're hoping to learn or build."></textarea></div>
+        <button type="submit" class="btn btn--primary btn--block btn--lg">Submit application</button>
+        <p class="form__note">By joining you agree to our <a href="#">Privacy Policy</a>. We never share youth data.</p>
+      </form>
+
+      <div class="form-success" id="joinSuccess" role="status">
+        <div class="form-success__tick"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Welcome to Connecting Dots</h3>
+        <p>Your application has been received. Check your email for next steps and your first masterclass invite.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+          <a href="https://wa.me/920000000000" target="_blank" rel="noopener" class="btn btn--wa">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.7 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.8-.6-3.1-1.3-5.1-4.4-5.3-4.6-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1.1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.4.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.8-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.4.1.3.1.8-.1 1.2z"/></svg>
+            Join WhatsApp
+          </a>
+          <button class="btn btn--secondary" type="button" id="joinAgain">Submit another</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM ============ -->
+<section class="page" id="page-team">
+  <div class="page-hero">
+    <div class="container">
+      <div class="crumb"><a href="#/">Home</a> <span class="sep">/</span> <span>Team &amp; Regions</span></div>
+      <h1>The people behind the movement</h1>
+      <p>A national team with deep roots in every region of Pakistan.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="grid grid--2">
+        <div class="person card reveal">
+          <div class="person__pic"><div class="fb">GZ</div></div>
+          <h3>GR Hassan Zamin</h3>
+          <div class="person__role">Founder</div>
+          <p>Vision and strategy for the movement, with a focus on national scale and partnership. <em class="muted">(Biography placeholder — to be supplied.)</em></p>
+          <div class="person__socials">
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9z"/></svg></a>
+          </div>
+        </div>
+        <div class="person card reveal">
+          <div class="person__pic"><div class="fb">NK</div></div>
+          <h3>Naureen Farooq Khan</h3>
+          <div class="person__role">Chairperson</div>
+          <p>Governance, community values and ensuring the movement stays youth-first. <em class="muted">(Biography placeholder — to be supplied.)</em></p>
+          <div class="person__socials">
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9z"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--mist">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">Regional structure</span>
+        <h2>Seven regions, one movement</h2>
+        <p>Each region is led by a Community Director who runs local events, mentors and partnerships. Select a region to learn more.</p>
+      </div>
+      <div class="region-wrap reveal">
+        <div class="region-grid" id="regionGrid">
+          <button class="region" data-region="kpk"><b>Khyber Pakhtunkhwa</b><span>Peshawar &amp; beyond</span></button>
+          <button class="region" data-region="sindh"><b>Sindh</b><span>Karachi, Hyderabad</span></button>
+          <button class="region" data-region="spunjab"><b>South Punjab</b><span>Multan, Bahawalpur</span></button>
+          <button class="region" data-region="cpunjab"><b>Central Punjab</b><span>Lahore, Faisalabad</span></button>
+          <button class="region" data-region="balochistan"><b>Balochistan</b><span>Quetta &amp; beyond</span></button>
+          <button class="region" data-region="gb"><b>Gilgit-Baltistan</b><span>Gilgit, Skardu</span></button>
+          <button class="region" data-region="kashmir"><b>Kashmir</b><span>Muzaffarabad</span></button>
+        </div>
+        <div class="region-detail" id="regionDetail"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section__head reveal"><span class="eyebrow">Structure</span><h2>How the team is organized</h2></div>
+      <div class="big-list reveal" style="max-width:720px">
+        <div class="big-list__row"><span class="big-list__n">01</span><div><h4>Founder &amp; Chairperson</h4><p>Vision, governance and national partnerships.</p></div></div>
+        <div class="big-list__row"><span class="big-list__n">02</span><div><h4>National Program Team</h4><p>Masterclasses, curriculum and the Opportunity Hub.</p></div></div>
+        <div class="big-list__row"><span class="big-list__n">03</span><div><h4>Seven Regional Community Directors</h4><p>Local events, mentors and chapters.</p></div></div>
+        <div class="big-list__row"><span class="big-list__n">04</span><div><h4>Campus Ambassadors</h4><p>Student-led chapters in universities and colleges.</p></div></div>
+        <div class="big-list__row"><span class="big-list__n">05</span><div><h4>Advisory Board</h4><p>Industry, academia and government advisors.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OPPORTUNITIES ============ -->
+<section class="page" id="page-opportunities">
+  <div class="page-hero">
+    <div class="container">
+      <div class="crumb"><a href="#/">Home</a> <span class="sep">/</span> <span>Opportunity Hub</span></div>
+      <h1>Real openings, for real people</h1>
+      <p>Jobs, internships, freelance projects, scholarships, competitions and volunteering — all in one place.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="filters" id="oppFilters">
+        <button class="filter is-active" data-filter="all">All</button>
+        <button class="filter" data-filter="job">Jobs</button>
+        <button class="filter" data-filter="internship">Internships</button>
+        <button class="filter" data-filter="freelance">Freelance</button>
+        <button class="filter" data-filter="scholarship">Scholarships</button>
+        <button class="filter" data-filter="competition">Competitions</button>
+        <button class="filter" data-filter="startup">Startups</button>
+        <button class="filter" data-filter="volunteer">Volunteering</button>
+      </div>
+      <div class="search-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" id="oppSearch" placeholder="Search by title, organization or skill…" aria-label="Search opportunities">
+      </div>
+      <div class="grid grid--3" id="oppList">
+        <article class="card opp reveal" data-type="job" data-text="junior web developer software house lahore html css javascript">
+          <div class="opp__head"><span class="chip">Job</span><span class="opp__org">Tech Co.</span></div>
+          <h3>Junior Web Developer</h3>
+          <p class="muted" style="font-size:.92rem;margin:0">A growing software house is hiring a front-end developer with HTML, CSS and JavaScript.</p>
+          <div class="opp__skills"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+          <div class="opp__meta"><span>Lahore</span><span>Deadline: 15 Nov 2026</span></div>
+          <div class="opp__actions"><a href="#/contact" class="btn btn--primary btn--sm">Apply</a></div>
+        </article>
+        <article class="card opp reveal" data-type="internship" data-text="marketing intern remote startup content campaign">
+          <div class="opp__head"><span class="chip">Internship</span><span class="opp__org">Startup</span></div>
+          <h3>Marketing Intern</h3>
+          <p class="muted" style="font-size:.92rem;margin:0">Three-month paid internship supporting campaign and content work for a startup.</p>
+          <div class="opp__skills"><span>Content</span><span>Social Media</span></div>
+          <div class="opp__meta"><span>Remote</span><span>Deadline: 30 Nov 2026</span></div>
+          <div class="opp__actions"><a href="#/contact" class="btn btn--primary btn--sm">Apply</a></div>
+        </article>
+        <article class="card opp reveal" data-type="freelance" data-text="ui ux designer edtech figma mobile">
+          <div class="opp__head"><span class="chip">Freelance</span><span class="opp__org">EdTech</span></div>
+          <h3>UI/UX Designer</h3>
+          <p class="muted" style="font-size:.92rem;margin:0">Design a mobile-first learning experience. Figma required.</p>
+          <div class="opp__skills"><span>Figma</span><span>UI Design</span><span>UX</span></div>
+          <div class="opp__meta"><span>Remote</span><span>Deadline: 10 Dec 2026</span></div>
+          <div class="opp__actions"><a href="#/contact" class="btn btn--primary btn--sm">Apply</a></div>
+        </article>
+        <article class="card opp reveal" data-type="scholarship" data-text="digital skills scholarship data ai certificate international">
+          <div class="opp__head"><span class="chip">Scholarship</span><span class="opp__org">Partner</span></div>
+          <h3>Digital Skills Scholarship 2027</h3>
+          <p class="muted" style="font-size:.92rem;margin:0">Full funding for an online certificate program in data and AI.</p>
+          <div class="opp__skills"><span>Data</span><span>AI</span></div>
+          <div class="opp__meta"><span>International</span><span>Deadline: 20 Dec 2026</span></div>
+          <div class="opp__actions"><a href="#/contact" class="btn btn--primary btn--sm">Apply</a></div>
+        </article>
+        <article class="card opp reveal" data-type="volunteer" data-text="event volunteer digital youth summit karachi">
+          <div class="opp__head"><span class="chip">Volunteering</span><span class="opp__org">Connecting Dots</span></div>
+          <h3>Event Volunteer — Digital Youth Summit</h3>
+          <p class="muted" style="font-size:.92rem;margin:0">Help run the flagship national event. Great experience and references.</p>
+          <div class="opp__skills"><span>Events</span><span>Communication</span></div>
+          <div class="opp__meta"><span>Karachi</span><span>Deadline: 1 Dec 2026</span></div>
+          <div class="opp__actions"><a href="#/contact" class="btn btn--primary btn--sm">Apply</a></div>
+        </article>
+        <article class="card opp reveal" data-type="job" data-text="data analyst entry level islamabad sheets sql">
+          <div class="opp__head"><span class="chip">Job</span><span class="opp__org">Analytics Co.</span></div>
+          <h3>Data Analyst (Entry Level)</h3>
+          <p class="muted" style="font-size:.92rem;margin:0">Sheets, SQL basics and clear communication required. Training provided.</p>
+          <div class="opp__skills"><span>Sheets</span><span>SQL</span></div>
+          <div class="opp__meta"><span>Islamabad</span><span>Deadline: 18 Nov 2026</span></div>
+          <div class="opp__actions"><a href="#/contact" class="btn btn--primary btn--sm">Apply</a></div>
+        </article>
+      </div>
+      <div class="empty-state" id="oppEmpty">No opportunities match this filter or search yet. Try another category.</div>
+      <p class="center muted mt-4">Mentor &amp; expert directory launching in phase 2.</p>
+    </div>
+  </div>
+
+  <div class="section section--mist">
+    <div class="container" style="max-width:760px">
+      <div class="section__head section__head--center reveal">
+        <span class="eyebrow">For businesses</span>
+        <h2>Post an Opportunity</h2>
+        <p>Reach thousands of motivated young people across Pakistan. Free for vetted partners.</p>
+      </div>
+      <form class="form card reveal" id="oppForm" novalidate>
+        <div class="form__row">
+          <div class="field"><label for="o-org">Organization <span class="req">*</span></label><input id="o-org" name="organization" type="text" placeholder="Company name" required><span class="field__err">Please enter your organization.</span></div>
+          <div class="field"><label for="o-email">Contact email <span class="req">*</span></label><input id="o-email" name="email" type="email" placeholder="you@company.com" required><span class="field__err">Please enter a valid email.</span></div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label for="o-type">Type <span class="req">*</span></label><select id="o-type" name="type" required><option value="">Select type</option><option>Job</option><option>Internship</option><option>Freelance project</option><option>Scholarship</option><option>Competition</option><option>Startup</option><option>Volunteering</option></select><span class="field__err">Please select a type.</span></div>
+          <div class="field"><label for="o-city">City / Location</label><input id="o-city" name="city" type="text" placeholder="Lahore / Remote"></div>
+        </div>
+        <div class="field"><label for="o-title">Opportunity title <span class="req">*</span></label><input id="o-title" name="title" type="text" placeholder="Junior Web Developer" required><span class="field__err">Please enter a title.</span></div>
+        <div class="field"><label for="o-skills">Required skills</label><input id="o-skills" name="skills" type="text" placeholder="e.g. React, English, Excel"></div>
+        <div class="field"><label for="o-desc">Description</label><textarea id="o-desc" name="description" placeholder="Short description, requirements and how to apply."></textarea></div>
+        <button type="submit" class="btn btn--primary btn--block btn--lg">Submit opportunity</button>
+      </form>
+      <div class="form-success" id="oppSuccess" role="status">
+        <div class="form-success__tick"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Opportunity submitted</h3>
+        <p>Thanks — our team will review and publish it within 2 working days.</p>
+        <button class="btn btn--secondary" type="button" id="oppAgain">Post another</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTNERS ============ -->
+<section class="page" id="page-partners">
+  <div class="page-hero">
+    <div class="container">
+      <div class="crumb"><a href="#/">Home</a> <span class="sep">/</span> <span>Partners</span></div>
+      <h1>Partner with Connecting Dots</h1>
+      <p>Institutes, universities, government, embassies and corporates — help us scale practical skills to 100,000+ youth.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section__head reveal"><span class="eyebrow">Partnership model</span><h2>Benefits by partner type</h2></div>
+      <div class="grid grid--3">
+        <div class="card reveal"><h3>Institutes</h3><p>Co-brand masterclasses and open doors for students at scale.</p></div>
+        <div class="card reveal"><h3>Universities</h3><p>Run campus chapters and connect students to real opportunities.</p></div>
+        <div class="card reveal"><h3>Government</h3><p>Support national digital inclusion and reach underserved regions.</p></div>
+        <div class="card reveal"><h3>Embassies</h3><p>Fund programs with transparent reporting and measurable outcomes.</p></div>
+        <div class="card reveal"><h3>Corporates</h3><p>Access pre-trained talent, run CSR programs and mentor youth.</p></div>
+        <div class="card reveal"><h3>Startups &amp; NGOs</h3><p>Reach motivated talent, post opportunities and co-host workshops.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--navy">
+    <div class="container">
+      <div class="section__head reveal" style="max-width:640px">
+        <span class="eyebrow">Scale</span>
+        <h2>National academy expansion</h2>
+        <p>Target: 100+ training academies by 2030, in partnership with institutes across all seven regions.</p>
+      </div>
+      <div class="grid grid--4">
+        <div class="stat reveal"><div class="stat__n" data-count="100" data-suffix="+">0</div><div class="stat__l">Academies targeted</div></div>
+        <div class="stat reveal"><div class="stat__n" data-count="7" data-suffix="">0</div><div class="stat__l">Regions covered</div></div>
+        <div class="stat reveal"><div class="stat__n" data-count="500" data-suffix="+">0</div><div class="stat__l">Masterclasses / year</div></div>
+        <div class="stat reveal"><div class="stat__n" data-count="100000" data-suffix="+">0</div><div class="stat__l">Students by 2030</div></div>
+      </div>
+      <p class="meta-note center" style="color:#8FA0C0;margin-top:24px">Strategic ambitions — to be updated with verified live numbers.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section__head reveal"><span class="eyebrow">Current partners</span><h2>Working with us today</h2></div>
+      <div class="logos">
+        <div class="logo-slot reveal">University Partner</div>
+        <div class="logo-slot reveal">Tech Institute</div>
+        <div class="logo-slot reveal">Government Body</div>
+        <div class="logo-slot reveal">Corporate Sponsor</div>
+        <div class="logo-slot reveal">Embassy / Donor</div>
+        <div class="logo-slot reveal">Startup Network</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--mist">
+    <div class="container" style="max-width:760px">
+      <div class="section__head section__head--center reveal">
+        <span class="eyebrow">Get in touch</span>
+        <h2>Partnership enquiry</h2>
+        <p>Tell us about your organization and we'll send the partnership deck within 48 hours.</p>
+      </div>
+      <form class="form card reveal" id="partnerForm" novalidate>
+        <div class="form__row">
+          <div class="field"><label for="p-org">Organization <span class="req">*</span></label><input id="p-org" name="organization" type="text" placeholder="Organization name" required><span class="field__err">Please enter your organization.</span></div>
+          <div class="field"><label for="p-name">Your name <span class="req">*</span></label><input id="p-name" name="name" type="text" placeholder="Full name" required><span class="field__err">Please enter your name.</span></div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label for="p-email">Email <span class="req">*</span></label><input id="p-email" name="email" type="email" placeholder="you@org.com" required><span class="field__err">Please enter a valid email.</span></div>
+          <div class="field"><label for="p-type">Partner type <span class="req">*</span></label><select id="p-type" name="partner_type" required><option value="">Select type</option><option>Institute</option><option>University</option><option>Government</option><option>Embassy / Donor</option><option>Corporate</option><option>Startup</option><option>NGO</option><option>Other</option></select><span class="field__err">Please select a type.</span></div>
+        </div>
+        <div class="field"><label for="p-msg">How would you like to partner?</label><textarea id="p-msg" name="message" placeholder="Tell us briefly what you have in mind."></textarea></div>
+        <button type="submit" class="btn btn--primary btn--block btn--lg">Send enquiry</button>
+      </form>
+      <div class="form-success" id="partnerSuccess" role="status">
+        <div class="form-success__tick"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Enquiry sent</h3>
+        <p>The partnership deck is on its way to your inbox. We'll be in touch within 48 hours.</p>
+        <button class="btn btn--secondary" type="button" id="partnerAgain">Send another</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPACT ============ -->
+<section class="page" id="page-impact">
+  <div class="page-hero">
+    <div class="container">
+      <div class="crumb"><a href="#/">Home</a> <span class="sep">/</span> <span>Impact &amp; Roadmap</span></div>
+      <h1>Our roadmap to 2030</h1>
+      <p>Honest progress and clear ambition — tracked publicly, updated as real numbers grow.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="grid grid--4">
+        <div class="stat reveal"><div class="stat__n" data-count="100000" data-suffix="+">0</div><div class="stat__l">Students by 2030</div></div>
+        <div class="stat reveal"><div class="stat__n" data-count="100" data-suffix="+">0</div><div class="stat__l">Academies by 2030</div></div>
+        <div class="stat reveal"><div class="stat__n" data-count="500" data-suffix="+">0</div><div class="stat__l">Masterclasses / year</div></div>
+        <div class="stat reveal"><div class="stat__n" data-count="500" data-suffix="+">0</div><div class="stat__l">Mentors</div></div>
+      </div>
+      <p class="meta-note center">Strategic ambitions — to be updated with verified live numbers as the movement grows.</p>
+    </div>
+  </div>
+
+  <div class="section section--mist">
+    <div class="container">
+      <div class="section__head reveal"><span class="eyebrow">Five-year roadmap</span><h2>From foundation to national ecosystem</h2></div>
+      <div class="timeline">
+        <div class="tl-item reveal"><span class="tl-item__w">2026 — Foundation</span><h3>Build the base</h3><ul><li>Launch the community and website</li><li>Start weekly masterclasses across seven regions</li><li>Establish the seven regional chapters</li></ul></div>
+        <div class="tl-item reveal"><span class="tl-item__w">2027 — Scale</span><h3>Grow the network</h3><ul><li>100+ masterclasses per quarter</li><li>Open the Opportunity Hub nationally</li><li>Launch the mentor network</li></ul></div>
+        <div class="tl-item reveal"><span class="tl-item__w">2028 — National Reach</span><h3>Reach every province</h3><ul><li>Rural micro skills centres</li><li>Campus chapters in 100+ universities</li><li>Quarterly summits in all regions</li></ul></div>
+        <div class="tl-item reveal"><span class="tl-item__w">2029 — Digital Inclusion</span><h3>Leave no one behind</h3><ul><li>Urdu-language curriculum</li><li>Low-bandwidth and offline-friendly content</li><li>Partnerships with government for scale</li></ul></div>
+        <div class="tl-item reveal"><span class="tl-item__w">2030 — National Ecosystem</span><h3>A self-sustaining movement</h3><ul><li>100,000+ students reached</li><li>100+ academies operating</li><li>Alumni giving back as mentors and partners</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section__head reveal"><span class="eyebrow">Reach</span><h2>Rural centres &amp; city chapters</h2></div>
+      <div class="grid grid--2">
+        <div class="card reveal"><h3>Rural Micro Skills Centres</h3><p>Small, local centres in underserved areas — equipped for practical digital skills and connected to the national network.</p></div>
+        <div class="card reveal"><h3>City Chapters</h3><p>Volunteer-led chapters in cities that run local events, mentorship and study groups.</p></div>
+      </div>
+      <div class="center mt-5 reveal"><a href="#/partners" class="btn btn--primary btn--lg">Support our mission</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="page" id="page-contact">
+  <div class="page-hero">
+    <div class="container">
+      <div class="crumb"><a href="#/">Home</a> <span class="sep">/</span> <span>Contact</span></div>
+      <h1>Get in touch</h1>
+      <p>Whether you're a member, partner, journalist or just curious — we'd love to hear from you.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container two-col">
+      <div class="reveal">
+        <span class="eyebrow">Contact form</span>
+        <h2>Send us a message</h2>
+        <p class="lead mb-3">Choose a topic and we'll route it to the right person. We reply within 2 working days.</p>
+        <form class="form card" id="contactForm" novalidate>
+          <div class="form__row">
+            <div class="field"><label for="c-name">Name <span class="req">*</span></label><input id="c-name" name="name" type="text" placeholder="Your name" required><span class="field__err">Please enter your name.</span></div>
+            <div class="field"><label for="c-email">Email <span class="req">*</span></label><input id="c-email" name="email" type="email" placeholder="you@example.com" required><span class="field__err">Please enter a valid email.</span></div>
+          </div>
+          <div class="form__row">
+            <div class="field"><label for="c-phone">Phone</label><input id="c-phone" name="phone" type="tel" placeholder="+92 300 0000000"></div>
+            <div class="field"><label for="c-topic">Topic <span class="req">*</span></label><select id="c-topic" name="topic" required><option value="">Select a topic</option><option>Membership</option><option>Partnership</option><option>Media</option><option>General Enquiry</option><option>Other</option></select><span class="field__err">Please select a topic.</span></div>
+          </div>
+          <div class="field"><label for="c-msg">Message <span class="req">*</span></label><textarea id="c-msg" name="message" placeholder="How can we help?" required></textarea><span class="field__err">Please enter a message.</span></div>
+          <button type="submit" class="btn btn--primary btn--block btn--lg">Send message</button>
+        </form>
+        <div class="form-success" id="contactSuccess" role="status">
+          <div class="form-success__tick"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>Message sent</h3>
+          <p>Thanks for getting in touch. We'll reply within 2 working days.</p>
+          <button class="btn btn--secondary" type="button" id="contactAgain">Send another</button>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <span class="eyebrow">Direct</span>
+        <h2>Reach us directly</h2>
+        <div class="big-list" style="margin-top:22px">
+          <div class="big-list__row"><span class="big-list__n">@</span><div><h4>Email</h4><p>hello@connectingdots.pk <em class="muted">(placeholder)</em></p></div></div>
+          <div class="big-list__row"><span class="big-list__n">☎</span><div><h4>Phone</h4><p>+92 300 0000000 <em class="muted">(placeholder)</em></p></div></div>
+          <div class="big-list__row">
+            <span class="big-list__n big-list__n--wa">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.7 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.8-.6-3.1-1.3-5.1-4.4-5.3-4.6-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1.1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.4.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.8-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.4.1.3.1.8-.1 1.2z"/></svg>
+            </span>
+            <div>
+              <h4>WhatsApp Community</h4>
+              <p><a href="https://wa.me/920000000000" target="_blank" rel="noopener" style="color:var(--wa);font-weight:700;text-decoration:underline">Join the community →</a> <em class="muted">(placeholder number)</em></p>
+            </div>
+          </div>
+        </div>
+
+        <h4 style="margin-top:32px;margin-bottom:12px;font-family:var(--font-sans);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Social</h4>
+        <div class="social" style="margin-bottom:32px">
+          <a href="#" aria-label="LinkedIn" style="background:var(--mist);color:var(--ink)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9z"/></svg></a>
+          <a href="#" aria-label="Facebook" style="background:var(--mist);color:var(--ink)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="#" aria-label="Instagram" style="background:var(--mist);color:var(--ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="YouTube" style="background:var(--mist);color:var(--ink)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.3-.4-4.9a2.6 2.6 0 0 0-1.8-1.8C19.2 5 12 5 12 5s-7.2 0-8.8.3A2.6 2.6 0 0 0 1.4 7.1C1 8.7 1 12 1 12s0 3.3.4 4.9a2.6 2.6 0 0 0 1.8 1.8C4.8 19 12 19 12 19s7.2 0 8.8-.3a2.6 2.6 0 0 0 1.8-1.8C23 15.3 23 12 23 12zM10 15V9l5 3z"/></svg></a>
+          <a href="#" aria-label="TikTok" style="background:var(--mist);color:var(--ink)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3a4.5 4.5 0 0 0 4.5 4.5v3a7.5 7.5 0 0 1-4.5-1.5v6.3a6 6 0 1 1-6-6c.3 0 .6 0 .9.1v3.1a3 3 0 1 0 2.1 2.8V3z"/></svg></a>
+        </div>
+
+        <h4 style="margin-bottom:8px">Frequently asked</h4>
+        <div class="faq">
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Is Connecting Dots free to join?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq-a"><p>Membership is free. Most masterclasses are free; some advanced programs may have a small fee to cover costs.</p></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Who can join?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq-a"><p>Anyone aged 16–35 in Pakistan. Mentors and partners of any age are welcome too.</p></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Do you offer Urdu-language content?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq-a"><p>English first, with Urdu planned for phase 2. Some sessions already include Urdu explanations.</p></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">How can my company partner?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq-a"><p>Use the partner enquiry form on the Partners page, or email us directly. We'll send the partnership deck.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">
+          <svg width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="3.4" fill="#8FB0E6"/><circle cx="31" cy="12" r="2.6" fill="#8FB0E6"/><circle cx="13" cy="30" r="2.6" fill="#8FB0E6"/><circle cx="31" cy="31" r="3.4" fill="#8FB0E6"/><path d="M9 9 L31 12 M9 9 L13 30 M31 12 L31 31 M13 30 L31 31" stroke="#8FB0E6" stroke-width="1.3" opacity=".6"/></svg>
+          Connecting<span>Dots</span>
+        </div>
+        <p class="about">Pakistan's youth digital skills movement. Less motivation. More practical skills.</p>
+        <div class="social">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.3-.4-4.9a2.6 2.6 0 0 0-1.8-1.8C19.2 5 12 5 12 5s-7.2 0-8.8.3A2.6 2.6 0 0 0 1.4 7.1C1 8.7 1 12 1 12s0 3.3.4 4.9a2.6 2.6 0 0 0 1.8 1.8C4.8 19 12 19 12 19s7.2 0 8.8-.3a2.6 2.6 0 0 0 1.8-1.8C23 15.3 23 12 23 12zM10 15V9l5 3z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3a4.5 4.5 0 0 0 4.5 4.5v3a7.5 7.5 0 0 1-4.5-1.5v6.3a6 6 0 1 1-6-6c.3 0 .6 0 .9.1v3.1a3 3 0 1 0 2.1 2.8V3z"/></svg></a>
+        </div>
+        <a href="https://wa.me/920000000000" target="_blank" rel="noopener" class="wa-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.7 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.8-.6-3.1-1.3-5.1-4.4-5.3-4.6-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1.1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.4.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.8-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.4.1.3.1.8-.1 1.2z"/></svg>
+          WhatsApp community
+        </a>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <a href="#/">Home</a>
+        <a href="#/about">About</a>
+        <a href="#/programs">Programs</a>
+        <a href="#/events">Events</a>
+        <a href="#/opportunities">Opportunity Hub</a>
+        <a href="#/team">Team</a>
+        <a href="#/partners">Partners</a>
+        <a href="#/impact">Impact</a>
+        <a href="#/contact">Contact</a>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <a href="#/join">Join</a>
+        <a href="#/join">Volunteer</a>
+        <a href="#/join">Campus Ambassador</a>
+        <a href="https://wa.me/920000000000" target="_blank" rel="noopener" style="color:var(--wa);font-weight:700">WhatsApp Community</a>
+      </div>
+      <div>
+        <h4>Stay updated</h4>
+        <p class="about" style="margin-bottom:12px">Get masterclass invites and opportunities in your inbox.</p>
+        <form class="form" id="newsletterForm" novalidate style="gap:10px">
+          <div class="field" style="gap:0">
+            <input type="email" id="n-email" placeholder="Your email" required style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.2);color:#fff">
+            <span class="field__err">Please enter a valid email.</span>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span id="year"></span> Connecting Dots. All rights reserved.</div>
+      <div class="journey-line">Connect · Learn · Adapt · Build · Grow</div>
+      <div><a href="#">Privacy</a> · <a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= MODAL ================= -->
+<div class="modal" id="registerModal" role="dialog" aria-modal="true" aria-labelledby="regTitle">
+  <div class="modal__scrim" data-close-modal></div>
+  <div class="modal__box">
+    <div class="modal__head">
+      <div>
+        <h3 id="regTitle">Register for event</h3>
+        <div class="sub" id="regEventName">—</div>
+      </div>
+      <button class="icon-btn" data-close-modal aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <form class="form" id="registerForm" novalidate>
+        <input type="hidden" id="r-event" name="event">
+        <input type="hidden" id="r-date" name="event_date">
+        <div class="field"><label for="r-name">Full name <span class="req">*</span></label><input id="r-name" name="name" type="text" placeholder="Your name" required><span class="field__err">Please enter your name.</span></div>
+        <div class="field"><label for="r-email">Email <span class="req">*</span></label><input id="r-email" name="email" type="email" placeholder="you@example.com" required><span class="field__err">Please enter a valid email.</span></div>
+        <div class="field"><label for="r-phone">Phone / WhatsApp</label><input id="r-phone" name="phone" type="tel" placeholder="+92 300 0000000"></div>
+        <button type="submit" class="btn btn--primary btn--block btn--lg">Confirm registration</button>
+        <p class="form__note">A confirmation will be sent to your email with the event link.</p>
+      </form>
+      <div class="form-success" id="registerSuccess" role="status">
+        <div class="form-success__tick"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>You're registered</h3>
+        <p id="registerSuccessMsg">We've sent the details to your email.</p>
+        <button class="btn btn--secondary" type="button" id="registerAgain">Register for another event</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= TOASTS + FLOATING BUTTONS ================= -->
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<a href="https://wa.me/920000000000" target="_blank" rel="noopener" class="wa-float" aria-label="Join WhatsApp community">
+  <span class="wa-float__label">Join WhatsApp community</span>
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.7 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.8-.6-3.1-1.3-5.1-4.4-5.3-4.6-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1.1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.4.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.8-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.4.1.3.1.8-.1 1.2z"/></svg>
+</a>
+
+<script>
+/* ============================================================
+   CONNECTING DOTS — SITE SCRIPT
+   ============================================================ */
+(function () {
+  'use strict';
+
+  /* ---------------- CONFIG ---------------- */
+  const CONFIG = {
+    FORM_ENDPOINT: null, // plug REST/Firebase/Supabase/WordPress API here later
+    WHATSAPP_NUMBER: '920000000000', // TODO: replace with real number (country code + number)
+    WHATSAPP_MESSAGE: 'Hi Connecting Dots! I want to join the community.',
+    STORAGE_KEY: 'cd-submissions'
+  };
+
+  /* Auto-update every WhatsApp link from CONFIG */
+  (function initWhatsApp(){
+    const url = 'https://wa.me/' + CONFIG.WHATSAPP_NUMBER + '?text=' + encodeURIComponent(CONFIG.WHATSAPP_MESSAGE);
+    document.querySelectorAll('a[href*="wa.me"]').forEach(a => { a.href = url; a.target = '_blank'; a.rel = 'noopener'; });
+  })();
+
+  const $  = (s, c) => (c || document).querySelector(s);
+  const $$ = (s, c) => Array.from((c || document).querySelectorAll(s));
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------------- ROUTER ---------------- */
+  const routes = {
+    '/':'home','/about':'about','/programs':'programs','/events':'events',
+    '/join':'join','/team':'team','/opportunities':'opportunities',
+    '/partners':'partners','/impact':'impact','/contact':'contact'
+  };
+  const pages = $$('.page');
+  const titles = {
+    home:'Connecting Dots — Less motivation. More practical skills.',
+    about:'About — Connecting Dots', programs:'Programs — Connecting Dots',
+    events:'Events & Masterclasses — Connecting Dots', join:'Join — Connecting Dots',
+    team:'Team & Regions — Connecting Dots', opportunities:'Opportunity Hub — Connecting Dots',
+    partners:'Partners — Connecting Dots', impact:'Impact & Roadmap — Connecting Dots',
+    contact:'Contact — Connecting Dots'
+  };
+  function currentPath () {
+    let h = location.hash.replace(/^#/, '') || '/';
+    if (!h.startsWith('/')) h = '/' + h;
+    return h.split('?')[0];
+  }
+  function render () {
+    const path = currentPath();
+    const key = routes[path] || 'home';
+    pages.forEach(p => p.classList.toggle('is-active', p.id === 'page-' + key));
+    $$('#primaryNav a, .mobile-nav nav a').forEach(a => {
+      const href = a.getAttribute('href') || '';
+      if (href.startsWith('#/')) a.classList.toggle('is-active', href === '#' + path);
+    });
+    document.title = titles[key] || titles.home;
+    closeNav(); closeModal();
+    window.scrollTo({ top: 0, behavior: 'auto' });
+    requestAnimationFrame(() => { initReveal(); initCounters(); });
+  }
+  window.addEventListener('hashchange', render);
+
+  /* ---------------- HEADER SCROLL ---------------- */
+  const header = $('#siteHeader');
+  function onScroll () {
+    if (header) header.classList.toggle('is-scrolled', window.scrollY > 8);
+    const top = $('#toTop');
+    if (top) top.classList.toggle('is-visible', window.scrollY > 500);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  /* ---------------- THEME ---------------- */
+  const root = document.documentElement;
+  const themeBtn = $('#themeBtn');
+  const saved = localStorage.getItem('cd-theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  else if (window.matchMedia('(prefers-color-scheme: dark)').matches) root.setAttribute('data-theme', 'dark');
+  if (themeBtn) themeBtn.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('cd-theme', next);
+    themeBtn.innerHTML = next === 'dark'
+      ? '<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>'
+      : '<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  });
+
+  /* ---------------- MOBILE NAV ---------------- */
+  const mobileNav = $('#mobileNav');
+  const navToggle = $('#navToggle');
+  function openNav () { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); navToggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+  function closeNav () { if (!mobileNav) return; mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); if (navToggle) navToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  if (navToggle) navToggle.addEventListener('click', () => mobileNav.classList.contains('is-open') ? closeNav() : openNav());
+  $$('[data-close-nav]').forEach(el => el.addEventListener('click', closeNav));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeNav(); closeModal(); } });
+
+  /* ---------------- REVEAL ---------------- */
+  let revealObs;
+  function initReveal () {
+    const items = $$('.page.is-active .reveal:not(.is-visible)');
+    if (!('IntersectionObserver' in window)) { items.forEach(el => el.classList.add('is-visible')); return; }
+    if (!revealObs) {
+      revealObs = new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); revealObs.unobserve(e.target); }
+      }), { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }
+    items.forEach(el => revealObs.observe(el));
+  }
+
+  /* ---------------- COUNTERS ---------------- */
+  let countObs;
+  function animateCount (el) {
+    const target = parseFloat(el.dataset.count || '0');
+    const suffix = el.dataset.suffix || '';
+    const dur = 1400; const start = performance.now();
+    function tick (now) {
+      const p = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const val = target * eased;
+      el.textContent = (target >= 1000 ? Math.floor(val).toLocaleString() : Math.floor(val)) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = (target >= 1000 ? target.toLocaleString() : target) + suffix;
+    }
+    requestAnimationFrame(tick);
+  }
+  function initCounters () {
+    const nums = $$('.page.is-active [data-count]:not(.counted)');
+    if (!('IntersectionObserver' in window) || prefersReduced) { nums.forEach(n => { n.classList.add('counted'); animateCount(n); }); return; }
+    if (!countObs) {
+      countObs = new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('counted'); animateCount(e.target); countObs.unobserve(e.target); }
+      }), { threshold: 0.4 });
+    }
+    nums.forEach(n => countObs.observe(n));
+  }
+
+  /* ---------------- NETWORK CANVAS ---------------- */
+  function initNetwork (canvas) {
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d'); if (!ctx) return;
+    if (prefersReduced) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let w = 0, h = 0, dots = [], raf = 0;
+    const COUNT = 42, MAX_D = 150;
+    function resize () {
+      const r = canvas.getBoundingClientRect();
+      w = r.width; h = r.height;
+      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      dots = [];
+      for (let i = 0; i < COUNT; i++) dots.push({
+        x: Math.random() * w, y: Math.random() * h,
+        vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25,
+        r: Math.random() * 1.7 + 1.1
+      });
+    }
+    function draw () {
+      ctx.clearRect(0, 0, w, h);
+      for (let i = 0; i < dots.length; i++) {
+        const a = dots[i];
+        a.x += a.vx; a.y += a.vy;
+        if (a.x < 0 || a.x > w) a.vx *= -1;
+        if (a.y < 0 || a.y > h) a.vy *= -1;
+        for (let j = i + 1; j < dots.length; j++) {
+          const b = dots[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < MAX_D) {
+            ctx.strokeStyle = 'rgba(143,176,230,' + ((1 - d / MAX_D) * .35).toFixed(3) + ')';
+            ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+          }
+        }
+      }
+      dots.forEach(p => { ctx.fillStyle = 'rgba(143,176,230,.75)'; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill(); });
+      raf = requestAnimationFrame(draw);
+    }
+    resize(); draw();
+    let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { cancelAnimationFrame(raf); resize(); draw(); }, 200); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting) { if (!raf) draw(); } else { cancelAnimationFrame(raf); raf = 0; }
+      }), { threshold: 0 }).observe(canvas);
+    }
+  }
+
+  /* ---------------- TOASTS ---------------- */
+  function toast (msg) {
+    const wrap = $('#toasts'); if (!wrap) return;
+    const t = document.createElement('div');
+    t.className = 'toast';
+    t.innerHTML = '<span class="toast__ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>' + msg + '</span>';
+    wrap.appendChild(t);
+    setTimeout(() => { t.classList.add('is-out'); setTimeout(() => t.remove(), 260); }, 3600);
+  }
+
+  /* ---------------- FORMS ---------------- */
+  function validateField (input) {
+    const f = input.closest('.field'); if (!f) return true;
+    let ok = true;
+    if (input.required && !input.value.trim()) ok = false;
+    if (ok && input.type === 'email' && input.value.trim()) ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
+    f.classList.toggle('has-error', !ok);
+    return ok;
+  }
+  document.addEventListener('blur', e => { if (e.target.matches && e.target.matches('input,select,textarea')) validateField(e.target); }, true);
+  document.addEventListener('input', e => {
+    if (e.target.matches && e.target.matches('input,select,textarea')) {
+      const f = e.target.closest('.field');
+      if (f && f.classList.contains('has-error')) validateField(e.target);
+    }
+  }, true);
+
+  function collect (form) {
+    const d = {};
+    new FormData(form).forEach((v, k) => { if (k in d) d[k] = [].concat(d[k], v); else d[k] = v; });
+    return d;
+  }
+  function store (payload) {
+    try { const a = JSON.parse(localStorage.getItem(CONFIG.STORAGE_KEY) || '[]'); a.push(payload); localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(a)); } catch (e) {}
+  }
+  async function send (payload) {
+    if (CONFIG.FORM_ENDPOINT) {
+      const r = await fetch(CONFIG.FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      if (!r.ok) throw new Error('fail');
+      return r.json().catch(() => ({}));
+    }
+    await new Promise(r => setTimeout(r, 600));
+    return { ok: true };
+  }
+
+  function attachForm (id, successId, resetId) {
+    const form = document.getElementById(id); const success = document.getElementById(successId);
+    if (!form || !success) return;
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      let ok = true;
+      $$('[required]', form).forEach(i => { if (!validateField(i)) ok = false; });
+      if (!ok) { const fe = $('.field.has-error', form); if (fe) { fe.scrollIntoView({behavior:'smooth',block:'center'}); const inp = $('input,select,textarea', fe); if (inp) inp.focus({preventScroll:true}); } return; }
+      const btn = $('button[type="submit"]', form); const orig = btn ? btn.innerHTML : '';
+      if (btn) { btn.disabled = true; btn.innerHTML = 'Sending…'; }
+      const payload = collect(form);
+      payload._form = form.id; payload._at = new Date().toISOString();
+      try {
+        await send(payload); store(payload);
+        if (btn) { btn.disabled = false; btn.innerHTML = orig; }
+        form.style.display = 'none'; success.classList.add('is-visible');
+        success.scrollIntoView({behavior:'smooth',block:'center'});
+        toast('Submitted successfully.');
+      } catch (err) {
+        if (btn) { btn.disabled = false; btn.innerHTML = orig; }
+        toast('Something went wrong. Please try again.');
+      }
+    });
+    if (resetId) {
+      const rb = document.getElementById(resetId);
+      if (rb) rb.addEventListener('click', () => {
+        form.reset(); $$('.field.has-error', form).forEach(f => f.classList.remove('has-error'));
+        success.classList.remove('is-visible'); form.style.display = '';
+        form.scrollIntoView({behavior:'smooth',block:'center'});
+      });
+    }
+  }
+
+  /* ---------------- MODAL ---------------- */
+  const modal = $('#registerModal');
+  const regForm = $('#registerForm');
+  const regSuccess = $('#registerSuccess');
+  const regEventName = $('#regEventName');
+  const rEvent = $('#r-event');
+  const rDate = $('#r-date');
+  function openModal (name, date) {
+    if (!modal) return;
+    if (regEventName) regEventName.textContent = name + (date ? ' · ' + date : '');
+    if (rEvent) rEvent.value = name;
+    if (rDate) rDate.value = date || '';
+    if (regForm) { regForm.style.display = ''; regForm.reset(); if (rEvent) rEvent.value = name; if (rDate) rDate.value = date || ''; }
+    if (regSuccess) regSuccess.classList.remove('is-visible');
+    modal.classList.add('is-open'); document.body.style.overflow = 'hidden';
+    setTimeout(() => { const n = $('#r-name'); if (n) n.focus(); }, 60);
+  }
+  function closeModal () { if (!modal) return; modal.classList.remove('is-open'); document.body.style.overflow = ''; }
+
+  /* ---------------- EVENT DELEGATION ---------------- */
+  document.addEventListener('click', e => {
+    const reg = e.target.closest('[data-register]');
+    if (reg) { openModal(reg.dataset.register || 'Event', reg.dataset.date || ''); return; }
+    if (e.target.closest('[data-close-modal]')) { closeModal(); return; }
+    const cal = e.target.closest('[data-calendar]');
+    if (cal) {
+      const parts = cal.dataset.calendar.split('|');
+      downloadIcs(parts[0], parts[1], parts[2]);
+      toast('Calendar file downloaded.');
+    }
+  });
+
+  /* ---------------- ICS EXPORT ---------------- */
+  function downloadIcs (name, ymd, location) {
+    const start = ymd + 'T140000Z';
+    const end = ymd + 'T160000Z';
+    const ics = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//Connecting Dots//Events//EN',
+      'BEGIN:VEVENT',
+      'UID:' + Date.now() + '@connectingdots',
+      'DTSTAMP:' + new Date().toISOString().replace(/[-:.]/g, '').slice(0, 15) + 'Z',
+      'DTSTART:' + start,
+      'DTEND:' + end,
+      'SUMMARY:' + name,
+      'LOCATION:' + (location || 'Online'),
+      'DESCRIPTION:Connecting Dots event',
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ].join('\r\n');
+    const blob = new Blob([ics], { type: 'text/calendar' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = name.replace(/\W+/g, '-').toLowerCase() + '.ics';
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  /* ---------------- FILTERS ---------------- */
+  function setupFilterGroup (groupId, listId, emptyId, attr) {
+    const group = document.getElementById(groupId);
+    const list = document.getElementById(listId);
+    if (!group || !list) return;
+    const empty = emptyId ? document.getElementById(emptyId) : null;
+    const cards = $$('[data-' + attr + ']', list);
+    function apply () {
+      const active = $$('.filter.is-active', group).map(b => b.dataset.filter);
+      const onlyAll = active.length === 0 || (active.length === 1 && active[0] === 'all');
+      let visible = 0;
+      cards.forEach(card => {
+        const tag = (card.getAttribute('data-' + attr) || '').toLowerCase();
+        const show = onlyAll || active.some(f => tag === f.toLowerCase());
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      if (empty) empty.classList.toggle('is-visible', visible === 0);
+    }
+    group.addEventListener('click', e => {
+      const b = e.target.closest('.filter'); if (!b) return;
+      if (b.dataset.filter === 'all') { $$('.filter', group).forEach(x => x.classList.remove('is-active')); b.classList.add('is-active'); }
+      else {
+        const allBtn = $('.filter[data-filter="all"]', group);
+        if (allBtn) allBtn.classList.remove('is-active');
+        b.classList.toggle('is-active');
+        if ($$('.filter.is-active', group).length === 0 && allBtn) allBtn.classList.add('is-active');
+      }
+      apply();
+    });
+    apply();
+  }
+
+  /* ---------------- OPPORTUNITY SEARCH ---------------- */
+  const oppSearch = $('#oppSearch');
+  if (oppSearch) {
+    oppSearch.addEventListener('input', () => {
+      const q = oppSearch.value.trim().toLowerCase();
+      const list = $('#oppList'); if (!list) return;
+      let visible = 0;
+      $$('[data-type]', list).forEach(card => {
+        const text = (card.getAttribute('data-text') || '') + ' ' + card.textContent.toLowerCase();
+        const match = !q || text.toLowerCase().includes(q);
+        card.style.display = match ? '' : 'none';
+        if (match) visible++;
+      });
+      const empty = $('#oppEmpty'); if (empty) empty.classList.toggle('is-visible', visible === 0);
+    });
+  }
+
+  /* ---------------- REGION GRID ---------------- */
+  const regionData = {
+    kpk:{name:'Khyber Pakhtunkhwa', dir:'Community Director — KPK', cities:'Peshawar, Mardan, Abbottabad, Swat', focus:'Digital skills, freelancing and tourism-tech programs.'},
+    sindh:{name:'Sindh', dir:'Community Director — Sindh', cities:'Karachi, Hyderabad, Sukkur', focus:'Freelancing, startup and creative economy programs.'},
+    spunjab:{name:'South Punjab', dir:'Community Director — South Punjab', cities:'Multan, Bahawalpur, Rahim Yar Khan', focus:'Agri-tech, digital literacy and women in tech.'},
+    cpunjab:{name:'Central Punjab', dir:'Community Director — Central Punjab', cities:'Lahore, Faisalabad, Gujranwala', focus:'AI, career readiness and industry partnerships.'},
+    balochistan:{name:'Balochistan', dir:'Community Director — Balochistan', cities:'Quetta, Gwadar, Khuzdar', focus:'Access programs, mining-tech and remote work.'},
+    gb:{name:'Gilgit-Baltistan', dir:'Community Director — Gilgit-Baltistan', cities:'Gilgit, Skardu, Hunza', focus:'Tourism-tech, e-commerce and digital storytelling.'},
+    kashmir:{name:'Kashmir', dir:'Community Director — Kashmir', cities:'Muzaffarabad, Mirpur', focus:'Youth employability and cross-region collaboration.'}
+  };
+  const regionGrid = $('#regionGrid');
+  const regionDetail = $('#regionDetail');
+  if (regionGrid && regionDetail) {
+    regionGrid.addEventListener('click', e => {
+      const b = e.target.closest('.region'); if (!b) return;
+      const d = regionData[b.dataset.region]; if (!d) return;
+      $$('.region', regionGrid).forEach(x => x.classList.remove('is-active'));
+      b.classList.add('is-active');
+      regionDetail.innerHTML = '<h3>' + d.name + '</h3><div class="region-detail__dir">' + d.dir + '</div><div class="region-detail__meta"><div><h4>Cities</h4><p>' + d.cities + '</p></div><div><h4>Focus areas</h4><p>' + d.focus + '</p></div></div><a href="#/join" class="btn btn--primary btn--sm">Join ' + d.name + '</a>';
+      regionDetail.classList.add('is-visible');
+    });
+  }
+
+  /* ---------------- FAQ ---------------- */
+  document.addEventListener('click', e => {
+    const q = e.target.closest('.faq-q'); if (!q) return;
+    const item = q.closest('.faq-item');
+    const open = item.classList.contains('is-open');
+    $$('.faq-item').forEach(i => { i.classList.remove('is-open'); const qq = $('.faq-q', i); if (qq) qq.setAttribute('aria-expanded','false'); });
+    if (!open) { item.classList.add('is-open'); q.setAttribute('aria-expanded','true'); }
+  });
+
+  /* ---------------- BACK TO TOP ---------------- */
+  const toTop = $('#toTop');
+  if (toTop) toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ---------------- YEAR ---------------- */
+  const y = $('#year'); if (y) y.textContent = new Date().getFullYear();
+
+  /* ---------------- INIT ---------------- */
+  function init () {
+    if (!location.hash) location.hash = '#/';
+    render();
+    initReveal(); initCounters();
+    initNetwork(document.getElementById('networkCanvas'));
+    attachForm('joinForm', 'joinSuccess', 'joinAgain');
+    attachForm('oppForm', 'oppSuccess', 'oppAgain');
+    attachForm('partnerForm', 'partnerSuccess', 'partnerAgain');
+    attachForm('contactForm', 'contactSuccess', 'contactAgain');
+    attachForm('registerForm', 'registerSuccess', 'registerAgain');
+    setupFilterGroup('eventFilters', 'eventList', 'eventEmpty', 'type');
+    setupFilterGroup('oppFilters', 'oppList', 'oppEmpty', 'type');
+  }
+
+  if (document.readyState !== 'loading') init();
+  else document.addEventListener('DOMContentLoaded', init);
+
+})();
+</script>
+</body>
+</html>
